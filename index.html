@@ -1,1938 +1,708 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SheshaDeliveries — Ermelo</title>
-
-  <!-- Load new fonts: Poppins (headings) and Inter (body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* =====================================================
-      THEME — NEW: Dark Mode (primary), Gold (accent)
-      ===================================================== */
-    :root {
-      /* New Color Palette */
-      --fire: #F59E0B;         /* Primary Gold/Amber */
-      --fire-soft: #FCD34D;   /* Light Gold/Amber */
-      --ink: #F5F5F5;         /* Primary Text (Off-white) */
-      --ink-2: #A3A3A3;       /* Secondary Text (Medium Gray) */
-      --bg: #0A0A0A;          /* Background (Off-black) */
-      --surface: #1C1C1C;     /* Card Surfaces (Dark Gray) */
-      --line: rgba(245, 245, 245, 0.1); /* Line color */
-
-      /* UI Styles */
-      --radius: 16px;
-      --shadow: 0 16px 50px rgba(0, 0, 0, .3);
-      --shadow-sm: 0 8px 24px rgba(0, 0, 0, .2);
-
-      /* Typography */
-      --font-heading: 'Poppins', sans-serif;
-      --font-body: 'Inter', sans-serif;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0 }
-    html, body { height: 100% }
-    body {
-      font-family: var(--font-body);
-      color: var(--ink-2);
-      background-color: var(--bg);
-      min-height: 100svh;
-      overflow-x: hidden;
-    }
-
-    /* SVG Icon styles */
-    .icon {
-      display: inline-block;
-      width: 1em;
-      height: 1em;
-      stroke-width: 0;
-      stroke: currentColor;
-      fill: currentColor;
-      vertical-align: middle;
-    }
-
-    /* Layout */
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin-inline: auto;
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-
-    /* ---------------- NAV (Desktop) ---------------- */
-    .nav {
-      display: none; /* Mobile-first: hidden */
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(12px) saturate(1.1);
-      background: rgba(10, 10, 10, 0.7); /* Blurred dark bg */
-      border-bottom: 1px solid var(--line);
-    }
-    .nav-inner {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
-      max-width: 1200px;
-      margin-inline: auto;
-      padding-inline: 16px;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      font-family: var(--font-heading);
-      letter-spacing: .2px;
-      cursor: pointer;
-      color: var(--ink);
-    }
-    .logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: var(--fire);
-      color: var(--bg); /* Black text on gold */
-      box-shadow: var(--shadow-sm);
-    }
-    .logo span { font-size: 22px }
-    .nav-links { display: flex; gap: 12px; align-items: center; justify-content: flex-end; }
-    .link { color: var(--ink); opacity: .9; text-decoration: none; font-weight: 700 }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Deliver | Coal City Express (The Only Hustle That Works)</title>
     
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      color: var(--ink);
-      font-weight: 700;
-      font-family: var(--font-body);
-      cursor: pointer;
-      transition: all .1s ease;
-      min-height: 48px;
-    }
-    .button:hover { box-shadow: var(--shadow-sm); transform: translateY(-2px); border-color: var(--line); }
-    .button.primary {
-      background: var(--fire);
-      border-color: var(--fire);
-      color: #000; /* Black text on gold */
-      box-shadow: 0 10px 30px rgba(245, 158, 11, .25);
-    }
-    .button.whatsapp {
-      background: #25D366;
-      border-color: #25D366;
-      color: #fff;
-      box-shadow: 0 10px 30px rgba(37, 211, 102, .25);
-    }
-    .button.danger { background: #ff3b3b; border-color: #ff3b3b; color: #fff; }
-    .button:active { transform: translateY(1px); }
+    <!-- PWA & SEO -->
+    <meta name="description" content="Witbank's most reliable delivery hustle. Ackerville, Lynville, and beyond. We navigate the dust, you stay on the couch.">
+    <meta name="theme-color" content="#f97316">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
-    /* Disabled button style */
-    .button.disabled {
-      background: var(--surface);
-      color: var(--ink-2);
-      cursor: not-allowed;
-      box-shadow: none;
-      opacity: 0.4;
-      pointer-events: none;
-    }
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .tracking-tighter { letter-spacing: -0.05em; }
+        .tracking-widest { letter-spacing: 0.1em; }
+        
+        /* Integrated Custom UI */
+        select, input, textarea {
+            appearance: none;
+            background-color: #ffffff;
+            border: 2px solid #f1f5f9;
+            border-radius: 1.25rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23f97316' stroke-width='3'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1rem;
+            padding-right: 3rem;
+            cursor: pointer;
+        }
 
-    /* Desktop Timer Styles */
-    .nav-timer {
-      text-align: center;
-      font-size: 0.85rem;
-      line-height: 1.2;
-      padding: 0 10px;
-      font-weight: 500;
-    }
-    .nav-timer .time {
-      font-weight: 700;
-      color: var(--ink);
-    }
-    .nav-timer .countdown {
-      font-weight: 700;
-      font-size: 0.75rem;
-      color: var(--ink-2);
-    }
-    .nav-timer .countdown.open { color: #4ADE80; } /* Bright Green */
-    .nav-timer .countdown.closed { color: #F87171; } /* Bright Red */
+        input:focus, select:focus, textarea:focus {
+            border-color: #f97316;
+            outline: none;
+            box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.15);
+            transform: translateY(-1px);
+        }
 
+        /* Error Highlights */
+        .field-error {
+            border-color: #ef4444 !important;
+            background-color: #fef2f2 !important;
+        }
 
-    /* ---------------- NAV (Mobile) ---------------- */
-    .nav-mobile {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      position: sticky;
-      bottom: 0;
-      z-index: 50;
-      background: rgba(18, 18, 18, 0.9);
-      backdrop-filter: blur(10px) saturate(1.1);
-      border-top: 1px solid var(--line);
-      padding: 6px 10px 10px 10px;
-    }
-    .nav-mobile .n-link {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      font-weight: 700;
-      font-size: 0.75rem;
-      color: var(--ink-2);
-      text-decoration: none;
-      padding: 8px 4px;
-      border-radius: 12px;
-    }
-    .nav-mobile .n-link .icon { font-size: 24px; }
-    .nav-mobile .n-link.active {
-      color: var(--fire);
-      background: rgba(245, 158, 11, .1); /* Soft Gold background */
-    }
-    .nav-mobile .n-link.cart-link { position: relative; }
-    .nav-mobile .n-link.disabled {
-      color: #737373; /* Muted gray */
-      pointer-events: none;
-      opacity: 0.6;
-      background: transparent;
-    }
-    /* Cart count badge */
-    .n-link .badge {
-      position: absolute;
-      top: 4px;
-      right: 18px;
-      background: var(--fire);
-      color: var(--bg);
-      font-size: 10px;
-      font-weight: 900;
-      line-height: 1;
-      padding: 3px 5px;
-      border-radius: 999px;
-      min-width: 18px;
-      text-align: center;
-      border: 2px solid var(--surface);
-    }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* ---------------- HERO ---------------- */
-    .hero {
-      padding: 16px 16px 96px 16px; /* Full padding on mobile */
-    }
-    /* Removed .hero .grid, now default block layout */
+        /* Smooth Transitions */
+        .page-content {
+            display: none;
+            animation: pageIn 0.5s ease-out forwards;
+        }
+        .page-active {
+            display: block;
+        }
 
-    .hero-brand-card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--line);
-    }
-    .hero-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 8px }
-    .hero-logo {
-      width: 72px;
-      height: 72px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      background: var(--fire);
-      color: var(--bg);
-      box-shadow: var(--shadow);
-    }
-    .hero-logo .icon { font-size: 34px; line-height: 1 }
-    .hero-title {
-      font-family: var(--font-heading);
-      font-weight: 800;
-      font-size: clamp(28px, 5vw, 52px);
-      line-height: 1.06;
-      color: var(--ink);
-    }
+        @keyframes pageIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    /* Mobile Timer (Visible only on mobile homepage) */
-    .mobile-timer {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 10px;
-      margin-top: 22px;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      display: block;
-    }
+        /* Fixed Slider Physics */
+        .slider-item {
+            flex: 0 0 280px !important;
+            flex-shrink: 0 !important;
+            scroll-snap-align: center;
+        }
 
-    /* Operating Message */
-    .operating-message {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 16px;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      height: 100%; /* For grid layout */
-    }
-    .operating-message h3 {
-      font-weight: 800;
-      font-family: var(--font-heading);
-      color: var(--ink);
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-    }
-    .operating-message p {
-      color: var(--ink-2);
-      font-weight: 500;
-      margin-bottom: 4px;
-      line-height: 1.4;
-    }
-    .contact-info {
-      margin-top: 16px;
-      font-weight: 500;
-    }
-    .contact-info p { margin-bottom: 8px; }
-    .contact-info a {
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 700;
-    }
-    .contact-info a:hover { text-decoration: underline; }
-    
-    /* Social Media Buttons */
-    .social-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 16px;
-      flex-wrap: wrap;
-    }
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 999px; /* circle */
-      background: var(--surface);
-      color: var(--ink);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-sm);
-      text-decoration: none;
-      transition: all .1s ease;
-    }
-    .social-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-      border-color: var(--fire-soft);
-      color: var(--fire-soft);
-    }
-    .social-btn .icon { font-size: 24px; }
-    .social-btn.wa { color: #25D366; }
-    .social-btn.fb { color: #1877F2; }
-    .social-btn.ig { color: #E4405F; }
-    .social-btn.call { color: var(--ink); }
+        .cartoon-icon {
+            stroke-width: 2.5px;
+            filter: drop-shadow(1px 1px 0px rgba(0,0,0,0.05));
+        }
 
-    /* Admin Demo Panel */
-    .admin-panel {
-      background: var(--surface);
-      border: 2px dashed var(--fire);
-      border-radius: var(--radius);
-      padding: 16px;
-      margin-top: 22px;
-      box-shadow: var(--shadow-sm);
-      display: grid;
-      gap: 10px;
-    }
-    .admin-panel .title {
-      font-weight: 800;
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      color: var(--ink);
-      text-align: center;
-    }
-    .admin-panel .field {
-      background: var(--bg);
-      border: 1px solid var(--line);
-      padding: 8px;
-      border-radius: 10px;
-    }
-    .admin-panel .btn-group {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+        .manifest-card {
+            background: #fdfdfd;
+            border-radius: 1.25rem;
+            padding: 1.25rem;
+            text-align: left;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.8rem;
+            color: #334155;
+            border: 2px dashed #e2e8f0;
+            white-space: pre-wrap;
+        }
 
-    /* Slideshow */
-    .hero-main-card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 8px;
-      border: 1px solid var(--line);
-    }
-    .hero-brand-card {
-      background: none;
-      border: none;
-      box-shadow: none;
-    }
-    .hero-bg {
-      background: transparent;
-      padding: 0;
-      margin-top: 8px;
-    }
-    .ride-photos {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-sm);
-      height: clamp(220px, 30vh, 420px);
-    }
-    .ride-photos img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      animation: fade 16s infinite ease-in-out;
-      background: #333;
-      transition: opacity .3s ease;
-    }
-    .ride-photos img:nth-child(1) { animation-delay: 0s; opacity: 1 }
-    .ride-photos img:nth-child(2) { animation-delay: 4s }
-    .ride-photos img:nth-child(3) { animation-delay: 8s }
-    .ride-photos img:nth-child(4) { animation-delay: 12s }
-    @keyframes fade { 0%, 25% { opacity: 1 } 33%, 100% { opacity: 0 } }
-    .ride-photos .sticker {
-      position: absolute;
-      left: 12px;
-      bottom: 12px;
-      background: var(--fire);
-      color: var(--bg);
-      padding: 6px 10px;
-      border-radius: 10px;
-      font-weight: 800;
-      font-family: var(--font-heading);
-    }
-    @media (prefers-reduced-motion: reduce) { .ride-photos img { animation: none; opacity: 1 } }
-
-    .zone-panel {
-      margin-top: 22px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 16px;
-      display: grid;
-      gap: 12px;
-      box-shadow: var(--shadow-sm);
-    }
-    .caption-title {
-      font-weight: 800;
-      font-family: var(--font-heading);
-      color: var(--ink);
-      font-size: 18px;
-    }
-    .zones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-    @media(min-width: 640px) { .zones { grid-template-columns: repeat(3, 1fr); } }
-
-
-    .pill {
-      padding: 12px 14px;
-      border-radius: 999px;
-      background: var(--surface);
-      border: 2px solid var(--line);
-      color: var(--ink);
-      font-weight: 700;
-      text-align: center;
-      cursor: pointer;
-      transition: all .1s ease;
-      min-height: 44px;
-    }
-    .pill:hover { transform: translateY(-2px); border-color: var(--fire-soft); }
-    .pill.active, .pill:focus {
-      background: var(--fire);
-      color: var(--bg);
-      border-color: var(--fire);
-    }
-
-    /* Services grid */
-    .hero-card {
-      position: relative;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--line);
-      min-height: auto;
-      background: var(--surface);
-      height: 100%; /* For grid */
-    }
-    .hero-services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 16px; }
-    .svc {
-      display: grid;
-      gap: 6px;
-      align-content: start;
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      box-shadow: var(--shadow-sm);
-      padding: 12px;
-      align-items: center;
-      text-align: center;
-    }
-    .s-ico { font-size: 28px; line-height: 1; margin: auto; color: var(--fire); }
-    .s-name { font-weight: 700; font-family: var(--font-heading); color: var(--ink); }
-    .s-desc { color: var(--ink-2); font-weight: 500; font-size: .9rem; }
-
-    /* Lists & cards */
-    .section {
-      padding: 16px 16px 96px 16px;
-      border-top: 1px solid var(--line);
-    }
-    
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: var(--shadow-sm);
-    }
-    
-    .restaurant-grid {
-      display: grid;
-      grid-template-columns: 1fr; /* Mobile: 1 column */
-      gap: 16px;
-    }
-    @media(min-width: 640px) {
-      .restaurant-grid {
-        grid-template-columns: repeat(2, 1fr); /* Tablet/Desktop: 2 columns */
-      }
-    }
-
-    .rest-card {
-      background: var(--surface);
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-sm);
-      cursor: pointer;
-      overflow: hidden;
-      transition: all .1s ease;
-    }
-    .rest-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-      border-color: var(--fire-soft);
-    }
-    .rest-card.disabled { opacity: 0.6; pointer-events: none; }
-    .rest-card .ph {
-      width: 100%;
-      aspect-ratio: 16/9;
-      background: #333;
-      background-size: cover;
-      background-position: center;
-      border-bottom: 1px solid var(--line);
-    }
-    .rest-card .info {
-      padding: 12px;
-    }
-    .rest-card h3 {
-      font-size: 1.1rem;
-      font-weight: 800;
-      font-family: var(--font-heading);
-      color: var(--ink);
-    }
-    .rest-card .details {
-      color: var(--ink-2);
-      font-weight: 500;
-      font-size: 0.9rem;
-    }
-
-
-    .menu-banner {
-      height: 220px;
-      border-radius: 18px;
-      background-color: var(--fire);
-      border: 1px solid var(--line);
-      background-size: cover;
-      background-position: center;
-    }
-    .menu-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
-    @media(min-width: 520px) { .menu-grid { grid-template-columns: repeat(2, 1fr) } }
-    .menu-item {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 12px;
-      display: grid;
-      gap: 6px;
-      box-shadow: var(--shadow-sm);
-    }
-    .menu-item h3 {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      color: var(--ink);
-    }
-    .price { font-weight: 800; color: var(--fire); }
-
-    /* Utility text classes */
-    .muted { color: var(--ink-2); font-weight: 500; }
-    .small { color: var(--ink-2); font-weight: 500; font-size: .9rem; }
-    .qtitle { font-weight: 800; font-family: var(--font-heading); color: var(--ink); }
-    
-    .quick-grid {
-      display: grid;
-      grid-template-columns: 1fr; /* Mobile: 1 column */
-      gap: 12px;
-      padding-top: 12px;
-    }
-    /* Popular items are simple rows, not full cards */
-    .rest-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--bg);
-      padding: 8px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      cursor: pointer;
-      transition: all .1s ease;
-    }
-    .rest-row:hover {
-      border-color: var(--fire-soft);
-      transform: translateX(2px);
-    }
-    .rest-row .ph {
-      width: 50px;
-      height: 50px;
-      border-radius: 8px;
-      background-size: cover;
-      background-position: center;
-      flex-shrink: 0;
-    }
-    .rest-row h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--ink);
-    }
-    .rest-row .details {
-      color: var(--ink-2);
-      font-weight: 500;
-      font-size: 0.85rem;
-    }
-    .rest-row.disabled { opacity: 0.6; pointer-events: none; }
-
-
-    /* Cart */
-    .cart { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 12px; box-shadow: var(--shadow-sm); }
-    .row { display: grid; grid-template-columns: 1fr auto auto auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px dashed var(--line); }
-    .row:last-child { border-bottom: 0 }
-    .row div:first-child { font-weight: 700; color: var(--ink); }
-    .qty { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 34px; align-items: center; justify-content: center; gap: 8px; }
-    .qbtn { height: 34px; width: 34px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-weight: 900; cursor: pointer; }
-    .remove { height: 34px; width: 34px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); font-weight: 900; cursor: pointer; color: #F87171; }
-    .total { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 12px; border-top: 2px solid var(--line); font-weight: 800; font-family: var(--font-heading); color: var(--ink); }
-    .total div:last-child { color: var(--fire); font-size: 1.1rem; }
-
-    /* Inputs */
-    .field { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: center; background: var(--bg); border: 1px solid var(--line); padding: 12px; border-radius: 12px; box-shadow: var(--shadow-sm); }
-    .field .icon { font-size: 20px; color: var(--ink-2); }
-    .field.search-field { grid-template-columns: auto 1fr; }
-    .field input, .field textarea {
-      width: 100%;
-      background: transparent;
-      border: 0;
-      color: var(--ink);
-      font-weight: 500;
-      font-family: var(--font-body);
-      outline: 0;
-    }
-    .field input::placeholder, .field textarea::placeholder { color: var(--ink-2); opacity: 0.8; }
-    .field textarea { min-height: 72px; resize: vertical }
-    .field:focus-within { border-color: var(--fire); box-shadow: 0 0 0 2px rgba(245, 158, 11, .2); }
-
-    .button:focus-visible, .link:focus-visible, input:focus-visible, textarea:focus-visible {
-      outline: 2px solid var(--fire-soft);
-      outline-offset: 2px;
-    }
-
-    /* Modals/Popups */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .modal-box {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 20px;
-      max-width: 90%;
-      width: 400px;
-      box-shadow: var(--shadow);
-      position: relative;
-      border: 1px solid var(--line);
-    }
-    .modal-box h3 {
-      font-family: var(--font-heading);
-      font-weight: 800;
-      color: var(--ink);
-    }
-    .modal-close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--ink-2);
-      padding: 5px;
-    }
-    .order-meta {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 8px;
-      margin-bottom: 12px;
-      font-weight: 500;
-    }
-    .order-meta strong {
-      color: var(--ink);
-      font-weight: 700;
-    }
-    .order-content {
-      white-space: pre-wrap;
-      word-break: break-word;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.9rem;
-      margin-bottom: 16px;
-      background: var(--bg);
-      padding: 12px;
-      border-radius: 12px;
-      color: var(--ink-2);
-    }
-    .modal-actions {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-    }
-
-    /* Toast Notification (Item Added) */
-    .toast-notification {
-      position: fixed;
-      bottom: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--ink);
-      color: var(--bg);
-      padding: 12px 20px;
-      border-radius: 999px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      z-index: 900;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-      font-weight: 700;
-      font-size: 0.9rem;
-      pointer-events: none;
-    }
-    .toast-notification.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-    
-    /* Order Success Page */
-    .success-icon {
-      color: #25D366; /* WhatsApp Green */
-      font-size: 5rem;
-      margin-bottom: 16px;
-    }
-    .payment-options {
-      display: grid;
-      gap: 12px;
-      margin-top: 16px;
-    }
-    .payment-method {
-      background: var(--bg);
-      padding: 12px;
-      border-radius: 12px;
-      font-weight: 500;
-      text-align: left;
-    }
-    .payment-method strong {
-      color: var(--ink);
-      font-weight: 700;
-    }
-    .payment-method span {
-      font-size: 0.8rem;
-      display: block;
-      color: var(--ink-2);
-    }
-    
-    /* App Footer */
-    .app-footer {
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--ink-2);
-      padding: 8px 16px 8px 16px;
-      margin-top: 20px;
-    }
-    .app-footer em {
-      display: block;
-      margin-top: 4px;
-      font-style: italic;
-    }
-
-    /* NEW: Info Grid for Desktop */
-    .info-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 22px;
-      margin-top: 22px;
-    }
-
-
-    /* =======================================
-      Desktop & Tablet Media Queries
-      ======================================= */
-    @media(min-width: 768px) {
-      /* Show desktop nav, hide mobile nav */
-      .nav { display: block; }
-      .nav-mobile { display: none; }
-      .mobile-timer { display: none; }
-
-      .container {
-        padding-left: 0;
-        padding-right: 0;
-      }
-
-      /* NEW: Hero Layout */
-      .hero {
-        padding: 40px 0 40px 0;
-      }
-
-      /* NEW: 3-Column Info Grid */
-      .info-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .card-popular {
-        height: 100%; /* Match height of other grid items */
-      }
-      
-      /* Make Admin Panel buttons hide/show */
-      #admin-open-btn-wrapper { display: var(--admin-open-display, none); }
-      #admin-close-btn-wrapper { display: var(--admin-close-display, none); }
-    }
-      
-    /* Responsive overrides for smaller layouts */
-    @media(max-width: 767px) {
-      /* Mobile layout is now default block stacking */
-      .admin-panel { margin-bottom: 20px; }
-      .app-footer { margin-bottom: 70px; }
-      
-      .row {
-        grid-template-columns: 1fr auto;
-        grid-template-areas: "name price" "qty remove";
-      }
-      .row > div:nth-child(1) { grid-area: name }
-      .row > .qty { grid-area: qty }
-      .row > div:nth-child(3) { grid-area: price; justify-self: end }
-      .row > button.remove { grid-area: remove; justify-self: end }
-      
-      .menu-grid { grid-template-columns: 1fr }
-    }
-  </style>
+        .alert-success { border-top: 8px solid #10b981 !important; }
+        .alert-warning { border-top: 8px solid #f97316 !important; }
+    </style>
 </head>
-<body>
+<body class="bg-[#F8FAFC] text-slate-800 selection:bg-orange-500 selection:text-white overflow-x-hidden text-left">
 
-  <!-- 
-    SVG Sprite Sheet 
-    Define all icons here once
-  -->
-  <svg width="0" height="0" style="position:absolute">
-    <defs>
-      <symbol id="svg-scooter" viewBox="0 0 24 24">
-        <path d="M19.78 11.5c-.3 0-.58.05-.85.14L17.2 8H20V6h-3.72l-1.4-4H12v2h2.2l1.1 3H12c-2.76 0-5 2.24-5 5v1.43c-1.8.76-3 2.5-3 4.57 0 2.76 2.24 5 5 5s5-2.24 5-5c0-1.8-1.03-3.36-2.5-4.24V14h2.2l1.73 3H17v2h3.28l1.1-5H22v-2h-2.22zM9 20c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm8-6h-2.67l-1.73-3H9v-2c0-1.66 1.34-3 3-3h2.33l1.8 5.4c.17-.03.33-.06.5-.08.12-.01.23-.02.35-.02 1.66 0 3 1.34 3 3s-1.34 3-3 3c-.12 0-.23-.01-.35-.02-.17-.02-.33-.05-.5-.08L17 14z"/>
-      </symbol>
-      <symbol id="svg-burger" viewBox="0 0 20 20">
-        <path d="M10 1c-4.418 0-8 2.239-8 5v3h16V6c0-2.761-3.582-5-8-5zM2 11v1.93c0 1.066.86 1.93 1.928 1.93h12.144C17.14 14.86 18 13.996 18 12.93V11H2zM4 16.028v-1.028h12v1.028A1.972 1.972 0 0114.028 18H5.972A1.972 1.972 0 014 16.028z"/>
-      </symbol>
-      <symbol id="svg-grocery" viewBox="0 0 20 20">
-        <path d="M16 6v2h2l-1.5 9H5.5L4 8h2V6a4 4 0 118 0zM8 6a2 2 0 114 0v2H8V6zM6.49 10l.8 6h5.42l.8-6H6.49z"/>
-      </symbol>
-      <symbol id="svg-bottle" viewBox="0 0 20 20">
-        <path d="M12 5V2a1 1 0 00-1-1H9a1 1 0 00-1 1v3H5a1 1 0 00-1 1v12a1 1 0 001 1h10a1 1 0 001-1V6a1 1 0 00-1-1h-3zM9 3h2v2H9V3zm6 14H5V7h10v10z"/>
-        <path d="M7 10h2v4H7z"/>
-      </symbol>
-      <symbol id="svg-medicine" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" d="M9 2a1 1 0 00-1 1v1H5a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2h-3V3a1 1 0 00-1-1H9zM5 6h10v10H5V6zm5 1a1 1 0 011 1v2h2a1 1 0 110 2h-2v2a1 1 0 11-2 0v-2H7a1 1 0 110-2h2V8a1 1 0 011-1z" clip-rule="evenodd"/>
-      </symbol>
-      <symbol id="svg-search" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
-      </symbol>
-      <symbol id="svg-chevron" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-      </symbol>
-      <symbol id="svg-home" viewBox="0 0 20 20">
-        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2.5a.5.5 0 01.5-.5h3a.5.5 0 01.5.5V17a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
-      </symbol>
-      <symbol id="svg-store" viewBox="0 0 20 20">
-        <path d="M2 2a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H3a1 1 0 01-1-1V2zm0 4v10a1 1 0 001 1h14a1 1 0 001-1V6H2zm3 2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H6a1 1 0 01-1-1V8zm7 0a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1h-2a1 1 0 01-1-1V8z"/>
-      </symbol>
-      <symbol id="svg-cart" viewBox="0 0 20 20">
-        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.92 1.056l7.23.904A1 1 0 0013.8 5.48L16 3l-1.29 2.064A.998.998 0 0014.07 6H7.79l-.35-1.405a1 1 0 00-.922-1.055L3 3.42V1zM4.328 8l1.36 5.447A1.998 1.998 0 007.618 15h4.764a2 2 0 001.93-1.553L15.67 8H4.328zM7 17a1 1 0 110 2 1 1 0 010-2zm8 0a1 1 0 110 2 1 1 0 010-2z"/>
-      </symbol>
-      <symbol id="svg-location" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-      </symbol>
-      <symbol id="svg-menu" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
-      </symbol>
-      <symbol id="svg-user" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-      </symbol>
-      <symbol id="svg-phone" viewBox="0 0 20 20">
-        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.058l-1.956 1.05a11.03 11.03 0 005.456 5.456l1.05-1.956a1 1 0 011.058-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C6.477 18 2 13.523 2 7V3z"/>
-      </symbol>
-      <symbol id="svg-address" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-      </symbol>
-      <symbol id="svg-notes" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm2 2a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 4a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/>
-      </symbol>
-      
-      <!-- Social Icons -->
-      <symbol id="svg-whatsapp" viewBox="0 0 24 24">
-        <path d="M20.5 3.4A12 12 0 0 0 12 0 12 12 0 0 0 .5 19.8l.1.1 3.5 1 1-3.4-.1-.1a12 12 0 0 1 1.4-14 12 12 0 0 1 17.1 2.9 12 12 0 0 1 2.9 17.1A12 12 0 0 1 12 24h-.1a12 12 0 0 1-8.5-3.5l-.1-.1-3.8 1.1 1.1-3.8.1-.1A12 12 0 0 1 12 0a12 12 0 0 1 8.5 3.4zM12 21.8c3.2 0 6.2-1.2 8.5-3.5a10 10 0 0 0 2.9-8.5 10 10 0 0 0-3.5-8.5 10 10 0 0 0-8.5-3.5 10 10 0 0 0-8.5 3.5 10 10 0 0 0-3.5 8.5 10 10 0 0 0 3.5 8.5l.1.1 2.7-.8-.8 2.7-.1-.1a10 10 0 0 0 8.5 3.5zm5.5-6.9c-.3-.1-1.6-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.2-.7.8-.9 1-.1.1-.3.2-.5.1-.3-.1-1.1-.4-2.1-1.3-.8-.7-1.3-1.5-1.5-1.8-.1-.3 0-.5.1-.6.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.2 0-.3-.1-.4-.1-.1-.7-1.6-.9-2.2-.2-.6-.4-.5-.5-.5h-.5c-.2 0-.4 0-.6.1-.2.1-.5.2-.8.5-.2.3-.8 1-.8 2.3 0 1.4 1 2.7 1.1 2.9.1.2 1.6 2.5 4 3.5.6.2 1 .4 1.4.5.6.2 1.1.1 1.5.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.1-1.3-.1-.3-.3-.4-.5-.5z"/>
-      </symbol>
-      <symbol id="svg-facebook" viewBox="0 0 24 24">
-        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm3 8h-1.5c-.7 0-1.5.4-1.5 1.5V11h3l-.5 3h-2.5v7h-3v-7H8v-3h2.5V9.5C10.5 7.1 12.1 6 15 6h1v2z"/>
-      </symbol>
-      <symbol id="svg-instagram" viewBox="0 0 24 24">
-        <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.784.297-1.455.717-2.126 1.387C1.34 2.69 1.01 3.36.71 4.14.41 4.905.21 5.775.15 7.053.092 8.333.075 8.74.075 12s.015 3.667.072 4.947c.06 1.277.26 2.148.56 2.912.297.785.717 1.455 1.387 2.126 1.34 1.34 3.05 1.91 4.94 1.91s3.6-.57 4.94-1.91c.67-.67 1.09-1.34 1.387-2.126.3-.764.5-1.635.56-2.912.058-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.26-2.148-.56-2.912C21.99 3.36 21.66 2.69 21.36 2.02c-.67-.67-1.34-1.09-2.126-1.387-.764-.3-1.635-.5-2.912-.56C15.667.015 15.26 0 12 0zm0 2.16c3.203 0 3.585.012 4.85.07 1.17.055 1.805.248 2.227.415.562.217.96.477 1.382.896.42.42.68.82.896 1.382.167.422.36 1.057.413 2.227.058 1.265.07 1.646.07 4.85s-.012 3.585-.07 4.85c-.055 1.17-.248 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.42-.82.68-1.382.896-.422.167-1.057.36-2.227.413-1.265.058-1.646.07-4.85.07zM12 6.162a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/>
-      </symbol>
-      <symbol id="svg-tiktok" viewBox="0 0 24 24">
-        <path d="M21 4H3C1.9 4 1 4.9 1 6v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-4.1 11.1c-.6.2-1.2.3-1.9.3-1.6 0-3.1-.7-4.1-1.9v5.5H7V7h3.5v6.1c.3-.1.7-.2 1-.2 1.9 0 3.5 1.6 3.5 3.5 0 .5-.1 1-.3 1.4l.1.1 2.2 2.2h-3z"/>
-      </symbol>
-      <symbol id="svg-x" viewBox="0 0 24 24">
-        <path d="M18.9 1.1l-6.3 7.2-5.9-7.2H1.1l7.3 8.9L1.1 23h5.6l6.9-8 6.4 8h5.6L12 12.4 18.9 1.1zM14.9 19.8L5.4 3.7H8l9.5 16.1h-2.6z"/>
-      </symbol>
-      <symbol id="svg-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-        <path d="M22 4 12 14.01l-3-3"/>
-      </symbol>
-    </defs>
-  </svg>
+    <!-- NAVIGATION -->
+    <nav id="navbar" class="fixed top-0 w-full z-[100] transition-all duration-300 bg-white/95 backdrop-blur-sm border-b border-slate-200 py-3 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-3 cursor-pointer group" onclick="navigateTo('home')">
+                <div class="bg-orange-500 p-2 rounded-xl shadow-lg transition-transform group-hover:rotate-12 shrink-0">
+                    <svg viewBox="0 0 24 24" class="text-white w-5 h-5 cartoon-icon" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </div>
+                <div class="flex flex-col leading-tight text-left">
+                    <span class="text-lg md:text-xl font-black uppercase tracking-tighter text-slate-900 leading-none">WE <span class="text-orange-500">DELIVER</span></span>
+                    <span class="font-bold uppercase tracking-widest text-[8px] text-slate-400 mt-1">Witbank Survival Squad</span>
+                </div>
+            </div>
 
-  <!-- NAV (Desktop) -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <!-- Brand Logo acts as HOME -->
-      <div class="brand" data-nav="index">
-          <div class="logo"><svg class="icon"><use xlink:href="#svg-scooter" /></svg></div>SheshaDeliveries
-      </div>
-      
-      <!-- Timer -->
-      <div class="nav-timer">
-          <div class="time" id="nav-date-time">Loading...</div>
-          <div class="countdown" id="nav-countdown">Checking hours...</div>
-      </div>
+            <div class="hidden lg:flex gap-6 items-center">
+                <button onclick="navigateTo('home')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all border-b-2 border-transparent">Home</button>
+                <button onclick="navigateTo('about')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all border-b-2 border-transparent">Our Story</button>
+                <button onclick="navigateTo('services')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all border-b-2 border-transparent">Services</button>
+                <button onclick="navigateTo('skills')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all border-b-2 border-transparent">Academy</button>
+                <button onclick="navigateTo('reviews')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all border-b-2 border-transparent">Receipts</button>
+                <button onclick="navigateTo('contact')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all border-b-2 border-transparent">Contact</button>
+                <button onclick="navigateTo('order')" class="bg-slate-900 text-white px-6 py-2.5 rounded-full shadow-lg hover:bg-orange-500 transition-all font-black uppercase tracking-widest text-[9px] active:scale-95">
+                    Faka iOrder
+                </button>
+            </div>
 
-      <!-- Nav Links -->
-      <div class="nav-links">
-        <a href="#" class="link" data-nav="restaurants">Restaurants</a>
-        <button class="button primary" data-nav="cart" id="nav-cart-btn">Cart (0)</button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO / INDEX -->
-  <header id="view-index" class="container hero">
-    
-    <!-- 1. WIDE HERO SECTION (BRAND + SLIDESHOW) -->
-    <div class="hero-main-card">
-      <div class="hero-brand-card">
-        <div class="hero-brand">
-          <div class="hero-logo"><svg class="icon"><use xlink:href="#svg-scooter" /></svg></div>
-          <h1 class="hero-title">SheshaDeliveries</h1>
+            <button onclick="toggleMenu()" class="lg:hidden p-2.5 text-slate-900 bg-slate-50 rounded-2xl border border-slate-200">
+                <svg id="menu-icon" viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <svg id="close-icon" viewBox="0 0 24 24" class="w-6 h-6 hidden" fill="none" stroke="currentColor"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+            </button>
         </div>
-        <p class="muted" style="margin-top: 8px; font-size: 1.1rem; line-height: 1.5;">
-          Your favorite local stores, delivered fast.
-        </p>
-      </div>
+    </nav>
 
-      <!-- Mobile Timer (Visible only on mobile homepage) -->
-      <div class="mobile-timer">
-          <div class="time" id="mobile-date-time">Loading...</div>
-          <div class="countdown" id="mobile-countdown">Checking hours...</div>
-      </div>
-      
-      <div class="hero-bg">
-        <div class="ride-photos" aria-label="Real delivery scooters in action">
-          <!-- HIGH QUALITY, SPECIFIC IMAGES -->
-          <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Delicious pizza" />
-          <img src="https://images.unsplash.com/photo-1627907228175-2bf846a303b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Juicy burger" />
-          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Pizza on a table" />
-          <img src="https://images.unsplash.com/photo-1588315029481-8014433e337c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800" alt="Delivery bag" />
-          <div class="sticker">SHESHA</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2. WIDE CTA (ZONE PANEL) -->
-    <div class="zone-panel">
-      <div class="caption-title">1. Choose your area</div>
-      <div class="zones" id="quick-zones">
-        <div class="pill" data-zone="Ermelo CBD" role="button" tabindex="0" aria-pressed="false">Ermelo CBD</div>
-        <div class="pill" data-zone="Wesselton" role="button" tabindex="0" aria-pressed="false">Wesselton</div>
-        <div class="pill" data-zone="Thusiville" role="button" tabindex="0" aria-pressed="false">Thusiville</div>
-        <div class="pill" data-zone="Cassim Park" role="button" tabindex="0" aria-pressed="false">Cassim Park</div>
-        <div class="pill" data-zone="De Bruin Park" role="button" tabindex="0" aria-pressed="false">De Bruin Park</div>
-        <div class="pill" data-zone="Nederhorst" role="button" tabindex="0" aria-pressed="false">Nederhorst</div>
-      </div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;justify-content:center">
-        <button class="button primary" data-nav="restaurants" id="hero-start">Start ordering</button>
-        <button class="button" data-nav="restaurants" id="hero-browse-rest">Browse stores</button>
-      </div>
-    </div>
-
-    <!-- 3. NEW 3-COLUMN INFO GRID (DESKTOP) -->
-    <div class="info-grid">
-      
-      <!-- Column 1: Operating Message -->
-      <div class="operating-message" id="operating-message">
-        <h3>We're ready for your order!</h3>
-        <p id="delivery-status">We are open for deliveries. Place your order now and we'll get it to you fast.</p>
-        <div class="contact-info">
-          <p><strong>Trading Hours:</strong></p>
-          <p>Mon - Fri: 8:00 AM - 8:00 PM</p>
-          <p>Sat - Sun: 9:00 AM - 7:00 PM</p>
-          <p><strong>Contact Us:</strong></p>
-          <div class="social-buttons">
-            <a href="tel:+27615938316" class="social-btn call" aria-label="Call us">
-              <svg class="icon"><use xlink:href="#svg-phone" /></svg>
-            </a>
-            <a href="https://wa.me/27615938316" target="_blank" class="social-btn wa" aria-label="WhatsApp us">
-              <svg class="icon"><use xlink:href="#svg-whatsapp" /></svg>
-            </a>
-            <a href="#" class="social-btn fb" aria-label="Facebook">
-              <svg class="icon"><use xlink:href="#svg-facebook" /></svg>
-            </a>
-            <a href="#" class="social-btn ig" aria-label="Instagram">
-              <svg class="icon"><use xlink:href="#svg-instagram" /></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Column 2: Popular Nearby -->
-      <div class="card card-popular">
-        <div class="qtitle" style="font-weight:900">2. Popular Nearby</div>
-        <!-- Use simple row display for popular items -->
-        <div class="quick-grid" id="quick-popular">
-          <!-- Dynamic content loaded here -->
-        </div>
-      </div>
-      
-      <!-- Column 3: Services -->
-      <div class="hero-card">
-        <div class="hero-services" aria-label="Our services">
-          <div class="svc"><div class="s-ico"><svg class="icon icon-fill"><use xlink:href="#svg-burger" /></svg></div><div class="s-name">Food</div><div class="s-desc">Restaurants</div></div>
-          <div class="svc"><div class="s-ico"><svg class="icon icon-fill"><use xlink:href="#svg-grocery" /></svg></div><div class="s-name">Groceries</div><div class="s-desc">Quick runs</div></div>
-          <div class="svc"><div class="s-ico"><svg class="icon icon-fill"><use xlink:href="#svg-bottle" /></svg></div><div class="s-name">Liquor</div><div class="s-desc">Bottle stores</div></div>
-          <div class="svc"><div class="s-ico"><svg class="icon icon-fill"><use xlink:href="#svg-medicine" /></svg></div><div class="s-name">Medicine</div><div class="s-desc">Pharmacy</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 4. ADMIN PANEL (full width) -->
-    <div class="admin-panel">
-        <div class="title">Admin Demo Panel</div>
-        <div class="btn-group">
-            <div id="admin-open-btn-wrapper"><button class="button" id="admin-force-open">Force Open</button></div>
-            <div id="admin-close-btn-wrapper"><button class="button danger" id="admin-force-close">Force Close</button></div>
-        </div>
-        <div class="muted small" style="text-align: center;">Target WhatsApp: <strong id="current-wa-number"></strong></div>
-        <div class="field">
-            <input type="tel" id="admin-wa-input" placeholder="0791234567 (10 digits)" pattern="^0\d{9}$" title="SA numbers start with 0 and have 10 digits"/>
-            <button class="button" id="admin-set-wa">Set</button>
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="lg:hidden fixed inset-0 top-[64px] bg-white z-50 translate-x-full opacity-0 transition-all duration-500 overflow-y-auto">
+        <div class="p-8 flex flex-col items-center justify-center space-y-6 text-center">
+            <div class="grid grid-cols-1 w-full gap-2 text-center">
+                <button onclick="navigateTo('home')" class="py-5 text-2xl font-black uppercase text-slate-900 border-b border-slate-100">Home</button>
+                <button onclick="navigateTo('about')" class="py-5 text-2xl font-black uppercase text-slate-900 border-b border-slate-100">Our Story</button>
+                <button onclick="navigateTo('services')" class="py-5 text-2xl font-black uppercase text-slate-900 border-b border-slate-100">Services</button>
+                <button onclick="navigateTo('skills')" class="py-5 text-2xl font-black uppercase text-slate-900 border-b border-slate-100">Academy</button>
+                <button onclick="navigateTo('reviews')" class="py-5 text-2xl font-black uppercase text-slate-900 border-b border-slate-100">Receipts</button>
+                <button onclick="navigateTo('contact')" class="py-5 text-2xl font-black uppercase text-slate-900 border-b border-slate-100">Contact</button>
+            </div>
+            <button onclick="navigateTo('order')" class="w-full py-6 bg-orange-500 text-white rounded-3xl font-black uppercase shadow-2xl">Place Order Now</button>
         </div>
     </div>
 
-  </header>
-
-  <!-- RESTAURANTS -->
-  <main id="view-restaurants" class="container section" style="display:none">
-    <div class="card" style="margin-bottom:14px;display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <div>
-        <div class="muted">DELIVERING TO</div>
-        <h2 id="zone-label" style="font-family: var(--font-heading); color: var(--ink);">Your Zone</h2>
-      </div>
-      <button class="button" data-nav="index" id="change-area">Change area</button>
-    </div>
-    <div class="field search-field" style="margin-bottom:12px;">
-      <div><svg class="icon"><use xlink:href="#svg-search" /></svg></div>
-      <input id="rest-search" type="text" placeholder="Search stores..." aria-label="Search restaurants" />
-    </div>
-    <div id="restaurant-list" class="restaurant-grid">
-        <!-- Dynamic content loaded here -->
-    </div>
-    
-    <!-- WhatsApp Order Card -->
-    <div class="card" id="whatsapp-order-card" style="margin-top: 16px; text-align: center; display: none;">
-        <h3 class="qtitle">Can't find what you need?</h3>
-        <p class="small muted" style="margin: 8px 0;">Order anything else in your area directly via WhatsApp.</p>
-        <button class="button whatsapp" id="order-anything-wa">
-            <svg class="icon" style="font-size: 20px;"><use xlink:href="#svg-whatsapp" /></svg>
-            Order Anything Now
-        </button>
-    </div>
-  </main>
-
-  <!-- MENU -->
-  <section id="view-menu" class="container section" style="display:none">
-    <div class="menu-banner" id="menu-banner"></div>
-    <div class="card" style="margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <h2 id="menu-title" style="font-family: var(--font-heading); color: var(--ink);">Restaurant</h2>
-      <div style="display:flex;gap:12px;align-items:center;flex:1;justify-content:flex-end; flex-wrap: wrap;">
-        <div class="field search-field" style="max-width:320px;">
-          <div><svg class="icon"><use xlink:href="#svg-search" /></svg></div>
-          <input id="menu-search" type="text" placeholder="Search this menu..." aria-label="Search menu" />
-        </div>
-        <button class="button primary" data-nav="cart" id="view-cart-btn">View Cart (0)</button>
-      </div>
-    </div>
-    <div id="menu-list" class="menu-grid" style="margin-top:12px;"></div>
-    <div style="margin-top:12px"><button class="button" data-nav="restaurants">‹ Back to Stores</button></div>
-  </section>
-
-  <!-- CART -->
-  <section id="view-cart" class="container section" style="display:none">
-    <h2 style="font-family: var(--font-heading); color: var(--ink);">Your Order</h2>
-    <div class="cart" style="margin-top:10px">
-      <div id="cart-items-container"></div>
-      <div class="total"><div>Total</div><div id="cart-total-price">R0.00</div></div>
-    </div>
-
-    <form id="delivery-form" class="card" style="margin-top:12px">
-      <h3 style="margin-bottom:8px; font-family: var(--font-heading); color: var(--ink);">Delivery Details</h3>
-      <div class="grid-auto" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap: 12px;">
-        <div class="field"><div><svg class="icon"><use xlink:href="#svg-user" /></svg></div><input id="df-name" type="text" placeholder="Full name" required /></div>
-        <div class="field"><div><svg class="icon"><use xlink:href="#svg-phone" /></svg></div><input id="df-phone" type="tel" placeholder="Phone (e.g., 0812345678)" pattern="^0\d{9}$" title="South African numbers start with 0 and have 10 digits" required /></div>
-        <div class="field" style="grid-column:1/-1"><div><svg class="icon"><use xlink:href="#svg-address" /></svg></div><input id="df-address" type="text" placeholder="Delivery address" required /></div>
-        <div class="field" style="grid-column:1/-1"><div><svg class="icon"><use xlink:href="#svg-notes" /></svg></div><textarea id="df-notes" placeholder="Driver instructions (optional)"></textarea></div>
-      </div>
-    </form>
-
-    <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
-      <button class="button whatsapp" id="place-order">Order via WhatsApp</button>
-      <button class="button" data-nav="restaurants">‹ Back to Stores</button>
-    </div>
-  </section>
-  
-  <!-- ORDER SUCCESS PAGE -->
-  <section id="view-success" class="container section" style="display:none; text-align: center;">
-      <svg class="icon success-icon"><use xlink:href="#svg-check-circle" /></svg>
-      <h2 style="font-weight: 800; font-family: var(--font-heading); color: var(--ink);">Order Sent!</h2>
-      <p class="muted" style="margin-top: 8px;">Your order has been sent to our drivers via WhatsApp. Your Order Number is <strong id="success-order-num" style="color: var(--ink);"></strong>.</p>
-      
-      <div class="card" style="margin-top: 20px;">
-          <h3 style="font-weight: 800; font-family: var(--font-heading); color: var(--ink); margin-bottom: 12px;">Payment Options</h3>
-          <p class="small muted">Confirm payment with the driver or via the options below immediately to speed up delivery.</p>
-          <div class="payment-options">
-              <div class="payment-method">
-                  <strong>EFT / Bank Transfer</strong>
-                  <span>Account: SheshaDeliveries | Bank: FNB | Acc No: 629XXXXXX | Branch: 250655</span>
-              </div>
-              <div class="payment-method">
-                  <strong>eWallet / Cash Send</strong>
-                  <span>Send to: 061 593 8316 (Reference: Your Phone Number)</span>
-              </div>
-              <div class="payment-method">
-                  <strong>Cash on Delivery (COD)</strong>
-                  <span>Please have the exact amount ready for the driver.</span>
-              </div>
-          </div>
-      </div>
-      
-      <button class="button primary" data-nav="index" style="margin-top: 20px;">Back to Home</button>
-  </section>
-
-  <!-- APP FOOTER -->
-  <footer class="app-footer">
-      <p>&copy; 2025 SheshaDeliveries. All rights reserved. V2.1.0-Dark</p>
-      <em class="small">Disclaimer: This is a demo app. All orders are finalised via WhatsApp.</em>
-  </footer>
-
-
-  <!-- MODAL: Order Preview/WhatsApp Confirm -->
-  <div id="order-modal-overlay" class="modal-overlay">
-    <div class="modal-box">
-      <button class="modal-close" id="order-modal-close">&times;</button>
-      <h3 style="margin-bottom: 10px;">Final Order Review</h3>
-      <div class="order-meta">
-        <div>Order # <strong id="modal-order-num"></strong></div>
-        <div id="modal-order-date"></div>
-      </div>
-      <div class="order-content" id="modal-order-content"></div>
-      <div class="modal-actions">
-          <button class="button whatsapp" id="modal-send-wa">Open WhatsApp</button>
-          <button class="button" id="modal-cancel">Cancel</button>
-      </div>
-    </div>
-  </div>
-  
-  <!-- MODAL: Simple Toast/Validation -->
-  <div id="toast-modal-overlay" class="modal-overlay">
-    <div class="modal-box" style="text-align: center; width: 300px;">
-      <button class="modal-close" id="toast-modal-close">&times;</button>
-      <h3 id="toast-title" style="margin-bottom: 8px;">Wait!</h3>
-      <p id="toast-message" class="muted" style="margin-bottom: 16px;">Message here.</p>
-      <button class="button primary" id="toast-okay">Okay</button>
-    </div>
-  </div>
-  
-  <!-- TOAST: Item Added Confirmation -->
-  <div class="toast-notification" id="item-added-toast">Added item to cart!</div>
-
-
-  <script>
-    // -----------------------------------------------------------
-    // ===== CONFIG & SETUP =====
-    // -----------------------------------------------------------
-    
-    // ❗️ UPDATE THIS: Default recipient for all WhatsApp orders (ZA 10-digit number)
-    const DEFAULT_WHATSAPP_NUMBER = '27615938316'; // Shesha Number
-    
-    // Time definitions for trading hours (24-hour format)
-    const TRADING_HOURS = {
-        WEEKDAY_START: 8, // 8:00 AM
-        WEEKDAY_END: 20,  // 8:00 PM
-        WEEKEND_START: 9, // 9:00 AM
-        WEEKEND_END: 19   // 7:00 PM
-    };
-    
-    // Utility functions
-    const $ = (s) => document.querySelector(s);
-    const $$ = (s) => Array.from(document.querySelectorAll(s));
-    
-    let CURRENT_RESTAURANT_ID = null;
-    let ORDER_MESSAGE_CACHE = null;
-
-    // --- Local Storage Accessors ---
-    const getCart = () => { try { return JSON.parse(localStorage.getItem('sheshaCart')) || []; } catch { return []; } };
-    const saveCart = (c) => localStorage.setItem('sheshaCart', JSON.stringify(c));
-    const clearCart = () => localStorage.removeItem('sheshaCart');
-    const getZone = () => localStorage.getItem('sheshaZone');
-    const getOrderNum = () => parseInt(localStorage.getItem('sheshaOrderNum') || '0', 10);
-    const incrementOrderNum = () => localStorage.setItem('sheshaOrderNum', getOrderNum() + 1);
-    
-    // --- Admin/Number Overrides ---
-    function toIntlZa(n){
-      n = (n||'').replace(/[^0-9]/g,'');
-      if(n.startsWith('0') && n.length===10) return '27'+n.slice(1);
-      if(n.startsWith('27')) return n;
-      return n; // fallback
-    }
-    function getWaNumber(){
-      const custom = localStorage.getItem('shesha_admin_wa');
-      const raw = custom || DEFAULT_WHATSAPP_NUMBER;
-      return toIntlZa(raw);
-    } 
-
-    // --- Master Data (Restaurants/Menus) ---
-    // HIGH-QUALITY, SPECIFIC UNSPLASH IMAGES
-    const ALL_RESTAURANTS = [
-        { id: 1, name: "KFC Ermelo", zone: "Ermelo CBD", deliveryFee: 20.00, cuisine: "Fast Food", img: 'https://images.unsplash.com/photo-1562967914-01efa7e87832?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400', menu: [
-            { name: 'Streetwise 2', price: 59.90, desc: '2 pieces of Original Recipe chicken & small chips.' },
-            { name: 'Box Master', price: 89.90, desc: 'A fillet, hashbrown, cheese, tomato & lettuce.' },
-            { name: 'Dunked Wingbox', price: 74.90, desc: '4 Zinger Wings dunked in honey & ginger soy.' }
-        ]},
-        { id: 2, name: "Roman's Pizza Ermelo", zone: "Ermelo CBD", deliveryFee: 20.00, cuisine: "Pizza", img: 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400', menu: [
-            { name: 'Large Regina', price: 110.00, desc: 'Ham & mushroom.' },
-            { name: 'Large Hawaiian', price: 115.00, desc: 'Ham & pineapple.' },
-            { name: 'Large Pepperoni', price: 120.00, desc: 'Classic pepperoni.' }
-        ]},
-        { id: 3, name: "Debonairs Pizza", zone: "Ermelo CBD", deliveryFee: 20.00, cuisine: "Pizza", img: 'https://images.unsplash.com/photo-1594007654729-407eedc4be65?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400', menu: [
-            { name: 'Large Cram-Decker®', price: 179.90, desc: 'Three layers, three cheeses.' },
-            { name: 'Large Tikka Chicken', price: 139.90, desc: 'Chicken, mushroom, onion, tikka sauce.' },
-            { name: 'Small Margherita', price: 59.90, desc: 'Classic cheese and tomato.' }
-        ]},
-        { id: 4, name: "Steers Ermelo", zone: "Wesselton", deliveryFee: 25.00, cuisine: "Fast Food", img: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400', menu: [
-            { name: 'Original King Steer Burger', price: 99.90, desc: 'Two 100g beef patties, cheese, bacon.' },
-            { name: 'Wacky Wednesday', price: 69.90, desc: 'Two 100% beef burgers. Only on Wed.' },
-            { name: 'Large Chips', price: 39.90, desc: 'Famous hand-cut chips.' }
-        ]},
-        { id: 5, name: "Wimpy Ermelo", zone: "Thusiville", deliveryFee: 25.00, cuisine: "Family", img: 'https://images.unsplash.com/photo-1550317138-10000687a72b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400', menu: [
-            { name: 'Full Breakfast', price: 109.90, desc: 'Eggs, bacon, boerewors, chips, toast.' },
-            { name: 'Wimpy Burger & Chips', price: 89.90, desc: 'The classic 100g beef burger.' },
-            { name: 'Wimpy Coffee', price: 29.90, desc: 'A classic filter coffee.' }
-        ]},
-        { id: 6, name: "Pick n Pay", zone: "Cassim Park", deliveryFee: 30.00, cuisine: "Groceries", img: 'https://images.unsplash.com/photo-1588964893710-441443b813c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400', menu: [
-            { name: '2L Milk', price: 30.00, desc: 'Full cream or low fat.' },
-            { name: 'Loaf of Bread', price: 20.00, desc: 'White or brown.' },
-            { name: '1kg Sugar', price: 40.00, desc: 'White sugar.' }
-        ]},
-        { id: 7, name: "Clicks Pharmacy", zone: "De Bruin Park", deliveryFee: 30.00, cuisine: "Medicine", img: 'https://images.unsplash.com/photo-1576602976047-174d58a28603?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400', menu: [
-            { name: 'Headache Tablets (24)', price: 50.00, desc: 'Paracetamol or Ibuprofen.' },
-            { name: 'Cough Syrup', price: 85.00, desc: 'For wet or dry cough.' },
-            { name: 'Vitamin C', price: 99.90, desc: '1000mg effervescent tablets.' }
-        ]}
-    ];
-
-    // -----------------------------------------------------------
-    // ===== MASTER TIME AND STATUS CONTROL =====
-    // -----------------------------------------------------------
-
-    let IS_OPEN = false; // Master state tracker
-
-    function getNextTradingTime(now, startHour, endHour) {
-        let currentDay = now.getDay(); // 0 (Sun) to 6 (Sat)
-        let nowMinutes = now.getHours() * 60 + now.getMinutes();
-
-        const startMinutes = startHour * 60;
-        const endMinutes = endHour * 60;
-
-        // 1. Check if currently within hours for today
-        if (nowMinutes >= startMinutes && nowMinutes < endMinutes) {
-            const closeTime = new Date(now);
-            closeTime.setHours(endHour, 0, 0, 0);
-            return { isOpen: true, time: closeTime, status: 'Closes in' };
-        }
-
-        // 2. Determine next opening time
-        let nextOpen = new Date(now);
-        nextOpen.setSeconds(0, 0);
-        let foundNextOpen = false;
-
-        // Case A: Today's hours are missed (already past closing time)
-        if (nowMinutes >= endMinutes) {
-            nextOpen.setDate(now.getDate() + 1); // Check tomorrow
-            currentDay = nextOpen.getDay();
-            
-            if (currentDay >= 1 && currentDay <= 5) { // Weekday
-                nextOpen.setHours(TRADING_HOURS.WEEKDAY_START, 0, 0, 0);
-            } else { // Weekend
-                nextOpen.setHours(TRADING_HOURS.WEEKEND_START, 0, 0, 0);
-            }
-            foundNextOpen = true;
-
-        } 
-        // Case B: Before today's opening time
-        else if (nowMinutes < startMinutes) {
-            nextOpen.setHours(startHour, 0, 0, 0);
-            foundNextOpen = true;
-        }
-
-        return { isOpen: false, time: nextOpen, status: 'Opens in' };
-    }
-
-    function formatTimeDifference(ms) {
-        const totalSeconds = Math.max(0, Math.floor(ms / 1000));
-        const hours = Math.floor(totalSeconds / 3600);
-        const minutes = Math.floor((totalSeconds % 3600) / 60);
-        const seconds = totalSeconds % 60;
-        const pad = (n) => String(n).padStart(2, '0');
+    <!-- MAIN AREA -->
+    <main class="pt-16">
         
-        if (hours > 24) return 'Over 24h';
-        return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
-    }
+        <!-- PAGE: HOME -->
+        <section id="page-home" class="page-content page-active py-12 md:py-24 px-6 text-left">
+            <div class="max-w-7xl mx-auto space-y-16">
+                <!-- HERO -->
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-8">
+                        <div class="inline-flex items-center gap-2 px-5 py-2 bg-orange-100 text-orange-600 rounded-full border border-orange-200">
+                            <span class="font-black uppercase tracking-widest text-[10px]">Faster than a blue-light convoy</span>
+                        </div>
+                        <h1 class="font-black uppercase tracking-tighter text-slate-900 text-5xl md:text-7xl lg:text-8xl leading-[0.85] text-left">
+                            KASI <br/><span class="text-orange-500 text-left">EXPRESS.</span>
+                        </h1>
+                        <p class="text-slate-500 text-lg md:text-xl font-medium max-w-lg leading-relaxed text-left">
+                            We navigate the heart of Witbank so you can stay on the couch. Fast, reliable, and slightly more honest than your last promise. 
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4 text-center">
+                            <button onclick="navigateTo('order')" class="px-10 py-5 bg-orange-500 text-white font-black rounded-3xl shadow-xl hover:bg-slate-900 transition-all uppercase text-sm active:scale-95 flex items-center justify-center gap-3">
+                                Faka iOrder <svg viewBox="0 0 24 24" class="w-5 h-5 cartoon-icon" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                            </button>
+                            <button onclick="navigateTo('about')" class="px-10 py-5 bg-white text-slate-900 border-2 border-slate-100 font-black rounded-3xl shadow-sm hover:border-orange-500 transition-all uppercase text-sm">Our Sins</button>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="aspect-[4/3] relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white group bg-slate-100">
+                            <div id="image-skeleton" class="absolute inset-0 bg-slate-200 animate-pulse flex items-center justify-center">
+                                <svg viewBox="0 0 24 24" class="animate-spin text-orange-400 w-10 h-10" fill="none" stroke="currentColor"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>
+                            </div>
+                            <img id="hero-image" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-0" alt="Witbank Illustration">
+                            <div class="absolute inset-0 bg-gradient-to-t from-orange-950/20 to-transparent"></div>
+                        </div>
+                    </div>
+                </div>
 
-    function masterTimeUpdater() {
-        const now = new Date();
-        const day = now.getDay();
-        const isWeekday = day >= 1 && day <= 5;
+                <!-- RADAR / TERRITORY -->
+                <div class="py-12 border-t border-slate-100 text-left bg-orange-50/20 rounded-[3rem] p-8 md:p-14">
+                    <div class="mb-10 space-y-2 text-left flex flex-col md:flex-row md:items-end justify-between gap-6">
+                        <div>
+                            <h2 class="font-black uppercase tracking-tighter text-slate-900 text-4xl">Our <span class="text-orange-500">Radar.</span></h2>
+                            <p class="text-slate-400 font-bold uppercase tracking-widest text-[10px] italic">Operators active in these zones. GPS is for amateurs.</p>
+                        </div>
+                        <div class="bg-white px-6 py-4 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3 shrink-0">
+                            <div class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></div>
+                            <span class="font-black uppercase tracking-widest text-[9px] text-slate-600">Active Riders: 52</span>
+                        </div>
+                    </div>
+                    <div id="territory-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                        <!-- JS Render -->
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        const start = isWeekday ? TRADING_HOURS.WEEKDAY_START : TRADING_HOURS.WEEKEND_START;
-        const end = isWeekday ? TRADING_HOURS.WEEKDAY_END : TRADING_HOURS.WEEKEND_END;
+        <!-- PAGE: ABOUT -->
+        <section id="page-about" class="page-content py-20 px-6 bg-white overflow-hidden text-left">
+            <div class="max-w-7xl mx-auto space-y-20">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-8 text-left">
+                        <div class="border-l-8 border-orange-500 pl-8 text-left">
+                            <h2 class="font-black uppercase tracking-tighter text-slate-900 text-5xl md:text-6xl leading-tight">Roots in <span class="text-orange-500">The Dust.</span></h2>
+                        </div>
+                        <p class="text-slate-600 text-lg leading-relaxed font-medium">Born in 2018 with one bike and a lot of confidence. If we can survive Raadsaal Road traffic at month-end, we can deliver anything.</p>
+                        <p class="text-slate-600 text-lg leading-relaxed font-medium text-left">Our riders are your brothers. They know where Ackerville ends and the potholes begin.</p>
+                        <div class="grid grid-cols-2 gap-4 pt-4 text-left">
+                            <div class="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 shadow-sm text-left">
+                                <p class="text-3xl font-black text-orange-500">20k</p>
+                                <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-2">Drops Survived</p>
+                            </div>
+                            <div class="p-8 bg-slate-900 rounded-[2.5rem] text-white text-left">
+                                <p class="text-3xl font-black">50+</p>
+                                <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-2">Brave Riders</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-orange-50 p-12 rounded-[4rem] border-4 border-white shadow-xl text-left">
+                        <h3 class="font-black uppercase tracking-tighter text-slate-900 text-3xl mb-4">The Real Ubuntu</h3>
+                        <p class="text-orange-900/70 font-medium leading-relaxed italic text-lg text-left">"Ubuntu means your delivery is safe. It also means if we get a puncture, the whole neighborhood stops to tell the rider how to fix it instead of helping. We love Witbank."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        const result = getNextTradingTime(now, start, end);
-        
-        let isOpen = result.isOpen;
-        let countdownText = result.status;
-        let countdownMs = result.time.getTime() - now.getTime();
-        let countdownValue = formatTimeDifference(countdownMs);
+        <!-- PAGE: SERVICES -->
+        <section id="page-services" class="page-content py-20 px-6 bg-[#F8FAFC] text-left">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="text-center space-y-4">
+                    <h2 class="font-black uppercase tracking-tighter text-slate-900 text-5xl md:text-7xl text-center">Siyasebenza</h2>
+                    <p class="font-bold uppercase tracking-widest text-xs text-orange-500 text-center text-center">Witbank's Hustle Infrastructure</p>
+                </div>
+                <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8 text-left">
+                    <!-- JS Render -->
+                </div>
+            </div>
+        </section>
 
-        // --- ADMIN OVERRIDE ---
-        const override = localStorage.getItem('shesha_admin_status');
-        if (override === 'OPEN') {
-            isOpen = true;
-            countdownText = 'Closing Soon';
-            countdownValue = 'DEMO MODE';
-        } else if (override === 'CLOSED') {
-            isOpen = false;
-            countdownText = 'Opening Soon';
-            countdownValue = 'DEMO MODE';
-        }
-        // --- END ADMIN OVERRIDE ---
-        
-        IS_OPEN = isOpen;
+        <!-- PAGE: ACADEMY -->
+        <section id="page-skills" class="page-content py-20 px-6 bg-white overflow-hidden text-left">
+            <div class="max-w-7xl mx-auto space-y-16 text-left">
+                <div class="flex flex-col md:flex-row justify-between items-end gap-8 text-left text-left">
+                    <div class="max-w-2xl border-l-8 border-emerald-500 pl-8 text-left">
+                        <span class="font-bold uppercase tracking-widest text-xs text-emerald-600 text-left">No Degree Required</span>
+                        <h2 class="font-black uppercase tracking-tighter text-slate-900 text-4xl md:text-7xl mt-4 text-left">The <span class="text-emerald-500 text-left">Academy.</span></h2>
+                    </div>
+                    <p class="max-w-sm text-slate-500 font-medium italic text-left">"Teaching youth how to drive like their lives depend on it. Because in Witbank, they do. Hustle cert included."</p>
+                </div>
 
-        // 1. Update Date/Time and Countdown
-        const formattedTime = now.toLocaleTimeString('en-ZA', { hour: '2-digit', minute: '2-digit' });
-        const formattedDate = now.toLocaleDateString('en-ZA', { weekday: 'short', month: 'short', day: 'numeric' });
+                <div class="relative w-full overflow-hidden text-left">
+                    <div id="academy-slider" class="flex flex-row flex-nowrap overflow-x-auto snap-x snap-mandatory no-scrollbar gap-8 pb-10 w-full text-left">
+                        <!-- JS Render -->
+                    </div>
+                </div>
 
-        $$('#nav-date-time, #mobile-date-time').forEach(el => el.textContent = `${formattedTime} - ${formattedDate}`);
-        $$('#nav-countdown, #mobile-countdown').forEach(el => {
-            el.textContent = `${countdownText}: ${countdownValue}`;
-            el.classList.toggle('open', isOpen);
-            el.classList.toggle('closed', !isOpen);
-        });
+                <div class="grid lg:grid-cols-2 gap-8 items-stretch pt-12 text-left">
+                    <div class="bg-emerald-600 p-12 rounded-[3.5rem] text-white space-y-8 flex flex-col justify-center shadow-2xl text-left text-left">
+                        <h3 class="font-black uppercase tracking-tighter text-4xl leading-tight text-left">Get off the <br/>Corner.</h3>
+                        <p class="text-emerald-50 text-lg opacity-90 leading-relaxed text-left text-left">Fully sponsored certification for local residents aged 18-25. We supply the bike, you supply the focus. Next intake: March 2026.</p>
+                    </div>
+                    <div class="bg-slate-50 p-12 rounded-[3.5rem] border border-slate-200 shadow-inner text-left">
+                        <h4 class="font-black uppercase text-2xl mb-8 text-emerald-600 text-left">Academy Inquiry</h4>
+                        <form id="academy-form" onsubmit="event.preventDefault(); handleAcademySubmit(this);" class="space-y-6 text-left">
+                            <div class="space-y-1 text-left text-left">
+                                <label class="font-bold uppercase tracking-widest text-[9px] text-slate-400 ml-4">Government Name *</label>
+                                <input type="text" name="name" required placeholder="Legal Name" class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none">
+                            </div>
+                            <div class="space-y-1 text-left text-left">
+                                <label class="font-bold uppercase tracking-widest text-[9px] text-slate-400 ml-4 text-left text-left text-left">Phone Number *</label>
+                                <input type="tel" name="phone" required placeholder="0..." class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none">
+                            </div>
+                            <button type="submit" class="w-full py-6 bg-slate-900 text-white font-black rounded-3xl uppercase tracking-widest text-xs shadow-xl active:scale-95 transition-all text-center">Inquire Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        // 2. Update Operating Message
-        let title, message;
-        if (IS_OPEN) {
-            title = "We're open!";
-            message = "We are open for deliveries. Place your order now and we'll get it to you fast.";
-        } else {
-            title = "We're currently closed.";
-            message = "We're not taking orders right now, but you can browse for later.";
-        }
-        
-        const statusElement = $('#delivery-status');
-        const messageHeader = $('#operating-message h3');
-        if (messageHeader) messageHeader.textContent = title;
-        if (statusElement) statusElement.textContent = message;
+        <!-- PAGE: REVIEWS -->
+        <section id="page-reviews" class="page-content py-20 px-6 bg-[#F8FAFC] text-left">
+            <div class="max-w-7xl mx-auto space-y-16 text-left text-left">
+                <div class="border-l-8 border-orange-500 pl-8 text-left">
+                    <span class="font-bold uppercase tracking-widest text-xs text-orange-500 text-left">Receipts</span>
+                    <h2 class="font-black uppercase tracking-tighter text-slate-900 text-5xl md:text-7xl mt-4 text-left">People <span class="text-orange-500 text-left text-left text-left">Claim.</span></h2>
+                </div>
 
-        // 3. Enable/Disable Buttons
-        const buttonsToDisable = [
-            '#hero-start', 
-            '#hero-browse-rest',
-            '#order-anything-wa'
+                <div id="reviews-slider" class="flex flex-row flex-nowrap overflow-x-auto snap-x snap-mandatory no-scrollbar gap-8 pb-10 w-full text-left">
+                    <!-- Rendered by JS -->
+                </div>
+
+                <div class="pt-12 border-t border-slate-100 text-left">
+                    <div class="bg-slate-50 p-10 md:p-14 rounded-[3.5rem] border border-slate-100 shadow-sm text-left">
+                        <h3 class="font-black uppercase tracking-tighter text-slate-900 text-2xl mb-8 text-left text-left">Spill The Tea.</h3>
+                        <form id="review-form" onsubmit="event.preventDefault(); handleReviewSubmit(this);" class="space-y-6 text-left">
+                            <div class="grid md:grid-cols-2 gap-8 text-left text-left">
+                                <input type="text" name="name" required placeholder="Grootman / Sis Name *" class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none">
+                                <select name="area" required class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none">
+                                    <option value="">Suburb *</option><option>Ackerville</option><option>Lynville</option><option>Thushanang</option><option>Clewer</option><option>Eznameni</option>
+                                </select>
+                                <textarea name="review" required placeholder="The Review (Tell the truth) *" rows="4" class="md:col-span-2 w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent text-left outline-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-6 bg-orange-500 text-white font-black rounded-3xl uppercase tracking-widest text-xs shadow-xl active:scale-95 transition-all text-center">Post Receipt</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE: CONTACT -->
+        <section id="page-contact" class="page-content py-20 px-6 bg-white overflow-hidden text-left">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center text-left text-left">
+                <div class="space-y-10 text-left text-left text-left">
+                    <div class="border-l-8 border-orange-500 pl-8 text-left text-left">
+                        <h2 class="font-black uppercase tracking-tighter text-slate-900 text-5xl md:text-7xl leading-tight text-left">Reach <br/><span class="text-orange-500 text-left text-left">The HQ.</span></h2>
+                    </div>
+                    <div class="flex items-start gap-6 p-8 bg-slate-50 rounded-[3rem] border border-slate-100 shadow-sm text-left">
+                        <div class="bg-white p-4 rounded-2xl shadow-sm text-orange-500 shrink-0 text-left text-left"><svg viewBox="0 0 24 24" class="w-6 h-6 cartoon-icon" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+                        <div class="text-left text-left text-left"><p class="font-bold uppercase tracking-widest text-[9px] text-slate-400 mb-1 text-left">Central Station</p><p class="font-black text-lg uppercase tracking-tighter text-slate-900 text-left text-left text-left">52 Raadsaal Road, Witbank</p></div>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-12 rounded-[4rem] border border-slate-200 shadow-inner text-left text-left">
+                    <h3 class="font-black uppercase text-2xl mb-8 text-left text-left">Send WhatsApp Inquiry</h3>
+                    <form onsubmit="event.preventDefault(); handleContactSubmit(this);" class="space-y-6 text-left text-left text-left">
+                        <input type="text" name="name" required placeholder="Legal Name *" class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none">
+                        <input type="tel" name="phone" required placeholder="Digits (Phone) *" class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none">
+                        <textarea name="msg" placeholder="How can we help? *" rows="4" class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent resize-none outline-none"></textarea>
+                        <button type="submit" class="w-full py-6 bg-slate-900 text-white font-black rounded-3xl uppercase tracking-widest text-xs shadow-xl active:scale-95 transition-all text-center">Talk To Us</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE: ORDER -->
+        <section id="page-order" class="page-content py-20 px-6 bg-[#F8FAFC] text-left">
+            <div class="max-w-4xl mx-auto space-y-12">
+                <div class="text-center space-y-4 text-center">
+                    <h2 class="font-black uppercase tracking-tighter text-slate-900 text-5xl md:text-7xl leading-tight text-center text-center text-center">Capture <br/><span class="text-orange-500 text-center text-center text-center">Manifest.</span></h2>
+                    <p class="text-slate-400 font-bold uppercase tracking-widest text-[10px] text-center italic text-center">"Fill the form correctly. Don't make us play detective at the gate."</p>
+                </div>
+
+                <form id="order-form" onsubmit="event.preventDefault(); handleOrderSubmission(this);" class="space-y-8 text-left text-left text-left">
+                    <!-- Receiver -->
+                    <div class="bg-white p-10 rounded-[3rem] shadow-sm relative border-b-8 border-emerald-500 border border-slate-100 text-left">
+                       <div class="flex items-center gap-4 mb-10 text-left text-left">
+                          <div class="bg-emerald-50 p-4 rounded-2xl text-emerald-600 shadow-sm shrink-0 text-left text-left text-left"><svg viewBox="0 0 24 24" class="text-2xl cartoon-icon" fill="none" stroke="currentColor"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                          <h3 class="font-black uppercase tracking-tighter text-slate-900 text-2xl text-left text-left">Receiver</h3>
+                       </div>
+                       <div class="grid md:grid-cols-2 gap-8 text-left text-left text-left">
+                          <div class="space-y-1 text-left text-left">
+                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4">Full Name *</label>
+                            <input name="name" required type="text" placeholder="Name" class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left">
+                          </div>
+                          <div class="space-y-1 text-left text-left">
+                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left">Digits (Phone) *</label>
+                            <input name="phone" required type="tel" placeholder="0..." class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left">
+                          </div>
+                       </div>
+                    </div>
+
+                    <!-- Manifest -->
+                    <div class="bg-white p-10 rounded-[3rem] shadow-sm relative border-b-8 border-orange-500 border border-slate-100 text-left text-left text-left text-left">
+                       <div class="flex items-center gap-4 mb-10 text-left text-left">
+                          <div class="bg-orange-50 p-4 rounded-2xl text-orange-500 shadow-sm shrink-0 text-left text-left text-left"><svg viewBox="0 0 24 24" class="text-2xl cartoon-icon" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path></svg></div>
+                          <h3 class="font-black uppercase tracking-tighter text-slate-900 text-2xl text-left text-left">The Manifest</h3>
+                       </div>
+                       <div class="grid md:grid-cols-2 gap-8 text-left text-left text-left">
+                          <div class="space-y-1 text-left text-left">
+                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left">Type *</label>
+                            <select id="category-select" name="category" required class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left">
+                                <option value="">Select Category</option><option>Fast Food</option><option>Groceries</option><option>Medication</option><option>Car Parts</option><option>Furniture</option><option>Parcels</option>
+                            </select>
+                          </div>
+                          <div class="space-y-1 text-left text-left">
+                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left">Merchant *</label>
+                            <input name="shop" required type="text" placeholder="Where from?" class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left">
+                          </div>
+                          <div class="md:col-span-2 space-y-1 text-left text-left">
+                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left">What's in the bag? *</label>
+                            <input name="items" required type="text" placeholder="Be specific..." class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left text-left">
+                          </div>
+                       </div>
+                    </div>
+
+                    <!-- Dropoff -->
+                    <div class="bg-white p-10 rounded-[3rem] shadow-sm relative border-b-8 border-blue-600 border border-slate-100 text-left text-left text-left text-left text-left">
+                       <div class="flex items-center gap-4 mb-10 text-left text-left text-left">
+                          <div class="bg-blue-50 p-4 rounded-2xl text-blue-600 shadow-sm shrink-0 text-left text-left text-left text-left"><svg viewBox="0 0 24 24" class="text-xl cartoon-icon" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path></svg></div>
+                          <h3 class="font-black uppercase tracking-tighter text-slate-900 text-2xl text-left text-left text-left text-left">Dropoff & Cash</h3>
+                       </div>
+                       <div class="grid md:grid-cols-2 gap-8 text-left text-left text-left">
+                          <div class="space-y-1 text-left text-left text-left">
+                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left text-left">Kasi *</label>
+                            <select name="area" required class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left">
+                                <option value="">Select Suburb</option><option>Ackerville</option><option>Lynville</option><option>Thushanang</option><option>Overline</option><option>Clewer</option><option>Eznameni</option>
+                            </select>
+                          </div>
+                          <div class="space-y-1 text-left text-left text-left">
+                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left text-left">Address *</label>
+                            <input name="streetAddress" required type="text" placeholder="House No. / Street" class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left">
+                          </div>
+                          <div class="md:col-span-2 space-y-1 text-left text-left text-left text-left">
+                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left text-left text-left">Payment Method *</label>
+                            <select name="payment" required class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left text-left text-left text-left">
+                                <option value="Cash on Delivery">💵 Cash (Old School)</option>
+                                <option value="Card Machine on Delivery">💳 Card (Fancy)</option>
+                                <option value="Instant EFT">⚡ Instant EFT (Grootman)</option>
+                            </select>
+                          </div>
+                       </div>
+                    </div>
+
+                    <button type="submit" class="group w-full py-10 bg-orange-500 text-white font-black rounded-full shadow-2xl hover:bg-slate-900 transition-all flex items-center justify-center gap-5 uppercase text-xl active:scale-95 border-4 border-white text-center text-center">
+                      <svg viewBox="0 0 24 24" class="w-8 h-8 cartoon-icon text-left text-left text-left" fill="none" stroke="currentColor"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg> Dispatch Manifest
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-16 px-6 text-center bg-white border-t border-slate-100 text-center">
+        <div class="max-w-4xl mx-auto space-y-8 flex flex-col items-center text-center text-center text-center text-center">
+            <div class="bg-orange-500 p-4 rounded-[1.5rem] shadow-xl text-center text-center text-center"><svg viewBox="0 0 24 24" class="text-white w-8 h-8 cartoon-icon text-center text-center text-center" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="currentColor"></path></svg></div>
+            <span class="text-2xl font-black uppercase text-slate-900 text-center text-center text-center text-center">WE <span class="text-orange-500 text-center text-center text-center text-center">DELIVER</span></span>
+            <p class="font-bold uppercase tracking-widest text-[10px] text-slate-400 italic text-center text-center text-center text-center">"I am because we are. Coal City Pride."</p>
+            <p class="pt-8 border-t border-slate-100 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-300 text-center text-center text-center text-center text-center text-center">
+                Disclaimer: We Deliver Logistics is not responsible for parcels lost in potholes, drivers abducted by mining ghosts, or the realization that coal isn't edible. Ubuntu sold separately.
+            </p>
+        </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div id="modal-container" class="hidden fixed inset-0 z-[300] flex items-center justify-center p-4 modal-backdrop animate-in fade-in duration-300 text-center text-center text-center">
+        <div id="modal-content" class="bg-white rounded-[2.5rem] p-6 md:p-8 max-w-xs w-full text-center shadow-2xl transform animate-in zoom-in-95 duration-300 flex flex-col items-center border-t-8 border-orange-500 text-center text-center text-center text-center">
+            <div id="modal-icon-container" class="p-3 bg-slate-50 rounded-full mb-4 flex items-center justify-center text-center text-center text-center text-center text-center text-center text-center"></div>
+            <h3 id="modal-title" class="text-xl font-black uppercase tracking-tighter text-slate-900 mb-1 text-center text-center text-center text-center text-center"></h3>
+            <p id="modal-message" class="text-slate-500 font-bold mb-4 text-[10px] uppercase text-center text-center text-center text-center text-center text-center"></p>
+            <div id="manifest-preview-container" class="w-full hidden mb-4 text-left text-left text-left text-left text-left text-left text-left text-left text-left"><div id="manifest-preview" class="manifest-card text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left"></div></div>
+            <div class="w-full space-y-3 text-center text-center text-center text-center text-center">
+                <a id="modal-whatsapp-btn" href="#" target="_blank" class="hidden py-4 bg-emerald-600 text-white font-black rounded-2xl uppercase tracking-widest text-xs hover:bg-emerald-700 transition-all flex items-center justify-center gap-4 shadow-xl text-center text-center text-center text-center text-center text-center">
+                    <svg viewBox="0 0 24 24" class="text-xl cartoon-icon text-center text-center text-center text-center text-center text-center text-center" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 11-7.6-10.6 8.38 8.38 0 013.8.9L21 3z"></path></svg> Confirm Manifest
+                </a>
+                <button onclick="closeModal()" class="py-4 text-slate-400 font-black uppercase tracking-widest text-[10px] hover:text-slate-800 transition-colors text-center text-center text-center text-center text-center text-center">Back to Reality</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- GLOBAL DATA ---
+        const services = [
+            { title: "Fast Food", icon: `<svg viewBox="0 0 24 24" class="cartoon-icon" fill="none" stroke="currentColor"><path d="M3 3h18v18H3z"/><path d="M7 8V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3"/><path d="M3 8h18v2a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z"/></svg>`, color: "bg-orange-500", desc: "Local favorites delivered fresh. Hotter than coal plant fires." },
+            { title: "Groceries", icon: `<svg viewBox="0 0 24 24" class="cartoon-icon" fill="none" stroke="currentColor"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>`, color: "bg-emerald-600", desc: "Supermarket runs. We brave Spar aisles so you don't have to." },
+            { title: "Medication", icon: `<svg viewBox="0 0 24 24" class="cartoon-icon" fill="none" stroke="currentColor"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path></svg>`, color: "bg-blue-600", desc: "Scripts and pharmacy essentials. Logistics is speed." },
+            { title: "Car Parts", icon: `<svg viewBox="0 0 24 24" class="cartoon-icon" fill="none" stroke="currentColor"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.77 3.77Z"></path></svg>`, color: "bg-slate-700", desc: "For the local mechanic. Heavy engine parts delivered fast." },
+            { title: "Furniture", icon: `<svg viewBox="0 0 24 24" class="cartoon-icon" fill="none" stroke="currentColor"><path d="M18 20V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14"></path><path d="M2 14h20"></path></svg>`, color: "bg-amber-800", desc: "Heavy transport for sofas. We lift with our legs, not egos." },
+            { title: "Parcels", icon: `<svg viewBox="0 0 24 24" class="cartoon-icon" fill="none" stroke="currentColor"><path d="M16.5 9.4 7.55 4.24"></path><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path></svg>`, color: "bg-indigo-600", desc: "Courier transport for docs and boxes. Secure as a mine vault." },
         ];
-        
-        buttonsToDisable.forEach(selector => {
-            const btn = $(selector);
-            if (btn) {
-                btn.disabled = !IS_OPEN;
-                btn.classList.toggle('disabled', !IS_OPEN);
-            }
-        });
-        
-        $$('.rest-card, .menu-item button, .rest-row').forEach(card => card.classList.toggle('disabled', !IS_OPEN));
-        
-        $$('.nav-mobile .n-link').forEach(link => {
-            if (link.dataset.nav !== 'index') {
-                link.classList.toggle('disabled', !IS_OPEN);
-            }
-        });
-        
-        // 4. Admin Button Display Logic
-        const adminOverride = localStorage.getItem('shesha_admin_status');
-        const openWrapper = $('#admin-open-btn-wrapper');
-        const closeWrapper = $('#admin-close-btn-wrapper');
 
-        if (openWrapper && closeWrapper) {
-            let showOpen, showClose;
-            if (adminOverride === 'OPEN') {
-                showOpen = 'none'; showClose = 'block';
-            } else if (adminOverride === 'CLOSED') {
-                showOpen = 'block'; showClose = 'none';
-            } else {
-                showOpen = IS_OPEN ? 'none' : 'block';
-                showClose = IS_OPEN ? 'block' : 'none';
-            }
-            openWrapper.style.display = showOpen;
-            closeWrapper.style.display = showClose;
-            document.documentElement.style.setProperty('--admin-open-display', showOpen);
-            document.documentElement.style.setProperty('--admin-close-display', showClose);
+        const academyCards = [
+            { title: "Safety Protocol", desc: "Witbank Road Survival", img: "https://images.unsplash.com/photo-1551288049-bbbda536ad0a?auto=format&fit=crop&q=80&w=800" },
+            { title: "Customer Care", desc: "The Professional Chai", img: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&q=80&w=800" }
+        ];
+
+        const reviews = [
+            { name: "Thandi M.", area: "Coal City Resident", text: "Fastest delivery in Witbank. Driver reminded me my gate was open. 10/10 hustle!" }
+        ];
+
+        // --- NAVIGATION ---
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('page-active'));
+            const target = document.getElementById(`page-${pageId}`);
+            if (target) target.classList.add('page-active');
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('border-orange-500', 'text-orange-600');
+                if (link.innerText.toLowerCase().includes(pageId)) link.classList.add('border-orange-500', 'text-orange-600');
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            closeMenu();
         }
-        
-        $('#current-wa-number').textContent = getWaNumber();
-    }
 
-    // -----------------------------------------------------------
-    // ===== VIEW LOGIC & NAVIGATION =====
-    // -----------------------------------------------------------
-    
-    function updateCartCount(){
-      const count=getCart().reduce((n,i)=>n+i.qty,0);
-      $$('#nav-cart-btn, #view-cart-btn').forEach(btn => btn.textContent = `Cart (${count})`);
-      
-      const badge = $('#mobile-cart-badge');
-      if (badge) {
-        badge.textContent = count;
-        badge.style.display = count > 0 ? 'block' : 'none';
-      }
-    }
-
-
-    function showToast(toastTitle, toastMessage, isValidation = true, duration = 3000) {
-        const toastModal = $('#toast-modal-overlay');
-        const title = $('#toast-title');
-        const message = $('#toast-message');
-        const okayButton = $('#toast-okay');
-
-        title.textContent = toastTitle;
-        message.textContent = toastMessage;
-        
-        if (isValidation) {
-            toastModal.style.display = 'flex';
-            okayButton.onclick = () => { toastModal.style.display = 'none'; };
-        } 
-        else {
-            const confirmationToast = $('#item-added-toast');
-            confirmationToast.textContent = toastMessage;
-            confirmationToast.classList.add('show');
-            setTimeout(() => {
-                confirmationToast.classList.remove('show');
-            }, duration);
+        function toggleMenu() {
+            const isOpen = !document.getElementById('mobile-menu').classList.contains('translate-x-full');
+            if (isOpen) closeMenu(); else openMenu();
         }
-    }
-    
-    function show(id){
-      ['index','restaurants','menu','cart','success'].forEach(v=> $('#view-'+v).style.display = 'none');
-      const view = $('#view-'+id);
-      if (view) view.style.display = 'block';
+        function openMenu() {
+            document.getElementById('mobile-menu').classList.remove('translate-x-full', 'opacity-0');
+            document.getElementById('menu-icon').classList.add('hidden');
+            document.getElementById('close-icon').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMenu() {
+            document.getElementById('mobile-menu').classList.add('translate-x-full', 'opacity-0');
+            document.getElementById('menu-icon').classList.remove('hidden');
+            document.getElementById('close-icon').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
 
-      $$('.nav-mobile .n-link').forEach(n => {
-        n.classList.toggle('active', n.dataset.nav === id);
-      });
+        function setupAutoSliders() {
+            const sliders = ['academy-slider', 'reviews-slider'];
+            sliders.forEach(id => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                setInterval(() => {
+                    if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 20) {
+                        el.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        el.scrollBy({ left: el.clientWidth * 0.8, behavior: 'smooth' });
+                    }
+                }, 4500);
+            });
+        }
 
-      if(id==='restaurants') initRestaurants();
-      if(id==='cart') renderCart();
-      
-      window.scrollTo(0, 0);
-    }
-    
-    // --- Index View ---
-    function initIndex(){
-      const stored = getZone();
-      if(stored){
-        $$('#quick-zones .pill').forEach(x=>{
-          const isActive = x.dataset.zone===stored;
-          x.classList.toggle('active', isActive);
-          x.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-        });
-        renderPopularRestaurants(stored);
-      } else {
-        $$('#quick-zones .pill').forEach(x=>{ x.classList.remove('active'); x.setAttribute('aria-pressed', 'false'); });
-        $('#quick-popular').innerHTML = '<div class="muted small" style="text-align:center; padding: 20px;">Select a zone above to see popular restaurants.</div>';
-      }
+        // --- IMAGEN 4.0 FIXED ---
+        async function generateHeroImage() {
+            const apiKey = ""; 
+            const promptText = "Vibrant thick-line cartoon illustration of a professional orange delivery motorcycle driving through a modern South African Witbank mining town, cooling towers and coal mine infrastructure in background, 8k digital art style";
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=${apiKey}`;
 
-      $$('#quick-zones .pill').forEach(p=>{
-        const select = ()=>{
-          localStorage.setItem('sheshaZone', p.dataset.zone);
-          $$('#quick-zones .pill').forEach(x=>{ x.classList.remove('active'); x.setAttribute('aria-pressed','false'); });
-          p.classList.add('active'); p.setAttribute('aria-pressed','true');
-          renderPopularRestaurants(p.dataset.zone);
+            const fastFail = setTimeout(() => useFallback(), 3000);
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        instances: [{ prompt: promptText }], 
+                        parameters: { sampleCount: 1 }
+                    })
+                });
+                const result = await response.json();
+                const base64 = result.predictions?.[0]?.bytesBase64Encoded;
+                if (base64) {
+                    clearTimeout(fastFail);
+                    const heroImg = document.getElementById('hero-image');
+                    heroImg.src = `data:image/png;base64,${base64}`;
+                    heroImg.onload = () => { heroImg.classList.remove('opacity-0'); document.getElementById('image-skeleton').classList.add('hidden'); };
+                }
+            } catch (err) { useFallback(); }
+        }
+
+        function useFallback() {
+            const heroImg = document.getElementById('hero-image');
+            heroImg.src = "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=1200";
+            heroImg.onload = () => { heroImg.classList.remove('opacity-0'); document.getElementById('image-skeleton').classList.add('hidden'); };
+        }
+
+        // --- VALIDATIONS & MODALS ---
+        function highlightMissingFields(form) {
+            let invalidCount = 0;
+            const requiredInputs = form.querySelectorAll('[required]');
+            requiredInputs.forEach(input => {
+                if (!input.value.trim() || (input.tagName === 'SELECT' && input.value === "")) {
+                    input.classList.add('field-error');
+                    invalidCount++;
+                } else {
+                    input.classList.remove('field-error');
+                }
+                input.oninput = () => input.classList.remove('field-error');
+            });
+            return invalidCount > 0;
+        }
+
+        function openAlert(type, title, message, whatsappUrl = null, manifestText = null) {
+            const themes = {
+                success: { icon: `<svg viewBox="0 0 24 24" class="text-emerald-500 w-12 h-12" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>`, border: 'alert-success' },
+                warning: { icon: `<svg viewBox="0 0 24 24" class="text-orange-500 w-10 h-10 animate-bounce" fill="none" stroke="currentColor"><path d="m12 9 4 7H8l4-7Z"></path><path d="M12 3v1"></path><path d="M12 17v.01"></path></svg>`, border: 'alert-warning' }
+            };
+            const theme = themes[type] || themes.warning;
+            const modal = document.getElementById('modal-content');
+            
+            modal.classList.remove('alert-success', 'alert-warning');
+            modal.classList.add(theme.border);
+            
+            document.getElementById('modal-icon-container').innerHTML = theme.icon;
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-message').innerText = message;
+            
+            if (manifestText) {
+                document.getElementById('manifest-preview-container').classList.remove('hidden');
+                document.getElementById('manifest-preview').innerText = manifestText;
+            } else { document.getElementById('manifest-preview-container').classList.add('hidden'); }
+            
+            const waBtn = document.getElementById('modal-whatsapp-btn');
+            if (whatsappUrl) { waBtn.href = whatsappUrl; waBtn.classList.remove('hidden'); }
+            else { waBtn.classList.add('hidden'); }
+            
+            document.getElementById('modal-container').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() { document.getElementById('modal-container').classList.add('hidden'); document.body.style.overflow = 'auto'; }
+
+        // --- STARTUP ---
+        window.onload = () => {
+            const zones = ["Ackerville", "Lynville", "Thushanang", "Overline", "Clewer", "Eznameni"];
+            const territoryGrid = document.getElementById('territory-grid');
+            if (territoryGrid) {
+                territoryGrid.innerHTML = zones.map(z => `
+                    <div class="p-6 bg-white rounded-3xl border-2 border-slate-50 shadow-sm text-center">
+                        <p class="font-black uppercase tracking-tighter text-sm">${z}</p>
+                    </div>`).join('');
+            }
+
+            const servicesGrid = document.getElementById('services-grid');
+            if (servicesGrid) {
+                servicesGrid.innerHTML = services.map(s => `
+                    <button onclick="selectService('${s.title}')" class="group flex flex-col p-8 md:p-10 bg-white rounded-[2.5rem] md:rounded-[3rem] border-2 border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 text-left min-h-[180px]">
+                        <div class="${s.color} w-10 h-10 md:w-12 md:h-12 rounded-2xl flex items-center justify-center mb-6 shadow-xl text-white text-xl">${s.icon}</div>
+                        <h3 class="font-black uppercase tracking-tighter text-slate-900 text-lg mb-2 group-hover:text-orange-500 transition-colors">${s.title}</h3>
+                        <p class="text-slate-500 text-[10px] leading-relaxed mb-4 font-medium">${s.desc}</p>
+                        <div class="mt-auto pt-4 border-t border-slate-50 flex items-center justify-between">
+                           <span class="text-[9px] font-black uppercase tracking-widest text-orange-500">Pick Hustle</span>
+                           <svg viewBox="0 0 24 24" class="text-slate-200 group-hover:text-orange-500 transition-all w-4 h-4 text-left" fill="none" stroke="currentColor"><path d="m9 18 6-6-6-6"></path></svg>
+                        </div>
+                    </button>`).join('');
+            }
+
+            const academySlider = document.getElementById('academy-slider');
+            if (academySlider) {
+                academySlider.innerHTML = academyCards.map(c => `
+                    <div class="slider-item snap-center aspect-[3/4] relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50 bg-slate-100 text-left">
+                        <img src="${c.img}" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/90 to-transparent p-10 flex flex-col justify-end text-left">
+                            <h4 class="text-white font-black uppercase text-2xl text-left">${c.title}</h4>
+                            <p class="text-emerald-200 text-xs font-bold uppercase tracking-widest mt-2 text-left">${c.desc}</p>
+                        </div>
+                    </div>`).join('');
+            }
+
+            const reviewsSlider = document.getElementById('reviews-slider');
+            if (reviewsSlider) {
+                reviewsSlider.innerHTML = reviews.map(r => `
+                    <div class="slider-item snap-center bg-white p-10 rounded-[3.5rem] border border-slate-100 shadow-sm flex flex-col justify-between h-[340px] text-left">
+                        <div class="space-y-6 text-left">
+                            <div class="flex gap-1 text-orange-500 text-left">
+                                <svg viewBox="0 0 24 24" class="fill-orange-500 w-3 h-3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg>
+                                <svg viewBox="0 0 24 24" class="fill-orange-500 w-3 h-3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg>
+                                <svg viewBox="0 0 24 24" class="fill-orange-500 w-3 h-3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg>
+                                <svg viewBox="0 0 24 24" class="fill-orange-500 w-3 h-3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg>
+                                <svg viewBox="0 0 24 24" class="fill-orange-500 w-3 h-3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg>
+                            </div>
+                            <p class="text-slate-600 italic font-medium text-lg leading-relaxed text-left">${r.text}</p>
+                        </div>
+                        <div class="flex items-center gap-4 pt-6 border-t border-slate-50 text-left">
+                            <div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden shadow-inner text-left"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=${r.name}" alt="User"></div>
+                            <div class="text-left"><p class="font-black text-xs uppercase text-slate-900 text-left">${r.name}</p><p class="text-[8px] uppercase font-bold text-slate-400 text-left">${r.area}</p></div>
+                        </div>
+                    </div>`).join('');
+            }
+
+            generateHeroImage();
+            setupAutoSliders();
+            navigateTo('home');
         };
-        p.addEventListener('click', select);
-        p.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); select(); }});
-      });
-    }
-    
-    function renderPopularRestaurants(zone) {
-        const popularContainer = $('#quick-popular');
-        const zoneRestaurants = ALL_RESTAURANTS.filter(r => r.zone === zone);
-        popularContainer.innerHTML = '';
-        
-        if (zoneRestaurants.length === 0) {
-            popularContainer.innerHTML = '<div class="muted small" style="text-align:center; padding: 20px;">No restaurants found in this area yet.</div>';
-            return;
+
+        function selectService(category) { document.getElementById('category-select').value = category; navigateTo('order'); }
+
+        // --- HANDLERS ---
+        function handleOrderSubmission(form) {
+            if (highlightMissingFields(form)) return openAlert('warning', 'Hhayibo!', 'Trying to order air? Please fill in all the required fields marked with *.');
+
+            const d = Object.fromEntries(new FormData(form).entries());
+            if (/\d/.test(d.name)) return openAlert('warning', 'IQ Test Failed!', "Numbers in your name? Witbank isn't ready for cyborgs yet. Use your real name, Grootman.");
+            if (d.phone.length < 10) return openAlert('warning', 'Short Digits!', "That number is too short. Unless you're using a walkie-talkie, give us 10 digits.");
+            if (d.streetAddress.length < 5) return openAlert('warning', 'Too Vague!', "Address too short. The rider gets to eat half your meal if we have to guess where you live.");
+
+            const text = `*WE DELIVER MANIFEST*%0A------------------------------%0A` +
+                         `✅ *Receiver:* ${d.name}%0A` +
+                         `✅ *Contact:* ${d.phone}%0A%0A` +
+                         `📦 *Order:* ${d.category}%0A` +
+                         `🏪 *Merchant:* ${d.shop}%0A` +
+                         `🛍️ *Items:* ${d.items}%0A%0A` +
+                         `💰 *Payment:* ${d.payment}%0A` +
+                         `📍 *Address:* ${d.streetAddress} (${d.area})%0A------------------------------%0A_Sent via We Deliver Witbank_`;
+
+            openAlert('success', 'Sharp-Sharp!', 'Manifest created! Ready to dispatch to our team.', `https://wa.me/27794573805?text=${text}`, decodeURIComponent(text));
         }
 
-        // Use new ROW style for popular
-        zoneRestaurants.slice(0, 3).forEach(r => {
-            const isDisabled = !IS_OPEN;
-            const rcard = document.createElement('div');
-            rcard.className = `rest-row ${isDisabled ? 'disabled' : ''}`;
-            rcard.setAttribute('data-restaurant', r.name);
-            rcard.setAttribute('tabindex', isDisabled ? '-1' : '0');
-            rcard.setAttribute('role', 'button');
-            rcard.innerHTML = `
-                <div class="ph" style="background-image:url('${r.img}')"></div>
-                <div>
-                    <h3>${r.name}</h3>
-                    <div class="details">${r.cuisine} • R${r.deliveryFee.toFixed(2)} Fee</div>
-                </div>
-            `;
-            
-            if (!isDisabled) {
-                rcard.addEventListener('click', () => openMenu(r.name));
-            }
-            popularContainer.appendChild(rcard);
-        });
-    }
-
-    // --- Restaurants View ---
-    function initRestaurants(){
-      const zone=getZone() || 'Unknown Zone';
-      $('#zone-label').textContent=zone;
-      
-      const listContainer = $('#restaurant-list');
-      listContainer.innerHTML = '';
-      
-      const zoneRestaurants = ALL_RESTAURANTS.filter(r => r.zone === zone);
-      const isClosed = !IS_OPEN;
-      const isAnyRestOpen = zoneRestaurants.length > 0;
-      
-      if (!isAnyRestOpen) {
-          listContainer.innerHTML = `<div class="muted small" style="text-align:center; padding: 30px; grid-column: 1 / -1;">
-                                        No partner stores found in ${zone}.
-                                        <br>Try the direct WhatsApp option below.
-                                     </div>`;
-      } else {
-        // Use new card style
-        zoneRestaurants.forEach(r => {
-            const rcard = document.createElement('article');
-            rcard.className = `rest-card ${isClosed ? 'disabled' : ''}`;
-            rcard.setAttribute('data-restaurant', r.name);
-            rcard.setAttribute('tabindex', '0');
-            rcard.innerHTML = `
-                <div class="ph" style="background-image:url('${r.img}')"></div>
-                <div class="info">
-                    <h3>${r.name}</h3>
-                    <div class="details">${r.cuisine} • R${r.deliveryFee.toFixed(2)} delivery</div>
-                </div>
-            `;
-            
-            if (!isClosed) {
-                rcard.addEventListener('click', () => openMenu(r.name));
-            }
-            listContainer.appendChild(rcard);
-        });
-      }
-      
-      const whatsappCard = $('#whatsapp-order-card');
-      whatsappCard.style.display = isClosed ? 'none' : 'block';
-      
-      // Search functionality
-      const rs=$('#rest-search');
-      if(rs){ rs.value = ''; rs.oninput = ()=>{
-        const q=rs.value.trim().toLowerCase();
-        let resultsFound = false;
-        $$('#restaurant-list .rest-card').forEach(card=>{
-          const name=card.querySelector('h3').textContent.toLowerCase();
-          const isVisible = name.includes(q);
-          card.style.display = isVisible ? 'block' : 'none';
-          if (isVisible) resultsFound = true;
-        });
-        
-        whatsappCard.style.display = (!resultsFound && q.length > 0) ? 'block' : (isClosed ? 'none' : 'block');
-      }}
-    }
-
-    // --- Menu View ---
-    function openMenu(name){
-      const restaurant = ALL_RESTAURANTS.find(r => r.name === name);
-      if (!restaurant) return;
-      
-      CURRENT_RESTAURANT_ID = restaurant.id;
-      
-      $('#menu-title').textContent=name;
-      const banner=$('#menu-banner');
-      if(banner){ 
-          banner.style.backgroundImage = `linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%), url('${restaurant.img}')`; 
-      }
-
-      const list=$('#menu-list'); list.innerHTML='';
-      restaurant.menu.forEach(it=>{
-        const el=document.createElement('div');
-        el.className='menu-item';
-        el.innerHTML=`
-            <h3>${it.name}</h3>
-            <div class='muted'>${it.desc}</div>
-            <div class='price'>R${it.price.toFixed(2)}</div>
-            <button class='button primary' data-item='${JSON.stringify(it).replace(/'/g, "&apos;")}' data-name="${it.name}">Add</button>
-        `;
-        list.appendChild(el);
-      });
-      
-      const ms=$('#menu-search');
-      if(ms){ ms.value = ''; ms.oninput=()=>{
-        const q=ms.value.trim().toLowerCase();
-        $$('#menu-list .menu-item').forEach(card=>{
-          const nameTxt=card.querySelector('h3').textContent.toLowerCase();
-          card.style.display = nameTxt.includes(q)?'grid':'none';
-        });
-      }}
-      
-      updateCartCount();
-      show('menu');
-    }
-
-    $('#menu-list').addEventListener('click', (e)=>{
-      const b=e.target.closest('[data-item]'); 
-      if(!b) return;
-      
-      const itemName = b.getAttribute('data-name');
-      const itemData = JSON.parse(b.getAttribute('data-item').replace(/&apos;/g, "'"));
-      
-      const cart=getCart();
-      const currentRestaurantName = ALL_RESTAURANTS.find(r => r.id === CURRENT_RESTAURANT_ID).name;
-
-      if (cart.length > 0) {
-        const firstItem = cart[0];
-        const firstRestaurant = ALL_RESTAURANTS.find(r => r.id === firstItem.restaurantId);
-        
-        if (firstItem.restaurantId !== CURRENT_RESTAURANT_ID) {
-            showToast("Multiple Stores", `Your cart has items from ${firstRestaurant.name}. Please complete or clear that order before starting a new one.`, true);
-            return;
+        function handleAcademySubmit(form) {
+            if (highlightMissingFields(form)) return openAlert('warning', 'Wait!', 'We cant train a ghost. Fill in your details.');
+            const d = Object.fromEntries(new FormData(form).entries());
+            const text = `*ACADEMY INQUIRY*%0A------------------------------%0ASawubona! I want to join the We Deliver Academy hustle.%0A%0A👤 *Applicant:* ${d.name}%0A📞 *Contact:* ${d.phone}%0A%0A_I am because we are._`;
+            openAlert('success', 'Sharp-Sharp!', 'Inquiry captured! Redirecting to coordinator...', `https://wa.me/27794573805?text=${text}`, decodeURIComponent(text));
         }
-      }
-      
-      const ex=cart.find(x => x.name === itemName);
-      
-      if(ex) {
-          ex.qty += 1; 
-      } else {
-          cart.push({
-              name: itemData.name,
-              price: itemData.price,
-              qty: 1,
-              restaurantId: CURRENT_RESTAURANT_ID,
-              restaurantName: currentRestaurantName
-          });
-      }
-      
-      saveCart(cart); 
-      updateCartCount();
-      showToast("Added!", `"${itemName}" added to cart.`, false, 2000);
-    });
 
-    // --- Cart View ---
-    function renderCart(){
-      const cart=getCart();
-      const items=$('#cart-items-container');
-      const total=$('#cart-total-price');
-      items.innerHTML=''; let sum=0;
-      
-      if(cart.length===0){ 
-          items.innerHTML='<div class="muted" style="padding: 16px 0; text-align: center;">Your cart is empty. Browse restaurants to add items.</div>'; 
-          total.textContent='R0.00'; 
-          return; 
-      }
-      
-      const restaurant = ALL_RESTAURANTS.find(r => r.id === cart[0].restaurantId);
-      if (restaurant) {
-          items.innerHTML = `<h3 style="font-weight:800; font-family:var(--font-heading); margin-bottom: 10px; color: ${IS_OPEN ? 'var(--ink)' : '#DC2626'};">Ordering from: ${restaurant.name}</h3>`;
-      }
-      
-      cart.forEach(i=>{
-        const line=i.price*i.qty; sum+=line;
-        const row=document.createElement('div'); row.className='row';
-        row.innerHTML=`<div>${i.name}</div>
-          <div class='qty'>
-            <button class='qbtn' aria-label='Decrease' data-dec='${i.name}'>−</button>
-            <div aria-live='polite'>${i.qty}</div>
-            <button class='qbtn' aria-label='Increase' data-inc='${i.name}'>+</button>
-          </div>
-          <div>R${line.toFixed(2)}</div>
-          <button class='remove' aria-label='Remove item' data-remove='${i.name}'>×</button>`;
-        items.appendChild(row);
-      });
-      total.textContent=`R${sum.toFixed(2)}`;
-    }
-
-    $('#cart-items-container').addEventListener('click',(e)=>{
-      const inc=e.target.closest('[data-inc]');
-      const dec=e.target.closest('[data-dec]');
-      const rem=e.target.closest('[data-remove]');
-      if(!inc && !dec && !rem) return;
-      
-      const cart=getCart();
-      const key=(inc||dec||rem).getAttribute('data-inc')|| (inc||dec||rem).getAttribute('data-dec') || (inc||dec||rem).getAttribute('data-remove');
-      const itemIndex = cart.findIndex(x => x.name === key);
-      const item = cart[itemIndex];
-      if(!item) return;
-      
-      if(inc) item.qty+=1;
-      if(dec){ item.qty-=1; if(item.qty<=0) cart.splice(itemIndex,1); }
-      if(rem){ cart.splice(itemIndex,1); }
-      
-      if (cart.length === 0) {
-          CURRENT_RESTAURANT_ID = null; // Unlock the cart
-      }
-      
-      saveCart(cart); renderCart(); updateCartCount();
-    });
-
-    // --- WhatsApp message (preview-first) ---
-    function generateWhatsApp(){
-      const cart=getCart();
-      if(cart.length===0){ showToast("Empty Cart", "Your cart is empty. Please add items before ordering.", true); return; }
-      
-      const zone=getZone() || 'Zone Not Selected';
-      const name=$('#df-name')?.value.trim();
-      const phone=$('#df-phone')?.value.trim();
-      const address=$('#df-address')?.value.trim();
-      const notes=$('#df-notes')?.value.trim();
-      
-      if(!name||!phone||!address){
-        showToast("Missing Details", "Please fill in your name, phone number, and delivery address.", true);
-        if(!name) { $('#df-name').focus(); return; }
-        if(!phone) { $('#df-phone').focus(); return; }
-        $('#df-address').focus();
-        return;
-      }
-
-      let total=0;
-      const orderNumber = `SH${String(getOrderNum() + 1).padStart(5, '0')}`;
-      const restaurantName = cart.length > 0 ? cart[0].restaurantName : 'N/A';
-      
-      const lines = [
-        `*SHESHA ORDER ${orderNumber}*`,
-        `*From:* ${restaurantName}`,
-        `*Delivery Zone:* ${zone}`,
-        '',
-        '*Customer Details:*',
-        `*Name:* ${name}`,
-        `*Phone:* ${phone}`,
-        `*Address:* ${address}`,
-      ];
-      if(notes) lines.push(`*Notes:* ${notes}`);
-      lines.push('', '*Order Items:*');
-      
-      cart.forEach(i=>{ const line=i.price*i.qty; total+=line; lines.push(`- ${i.qty}x ${i.name} (R${line.toFixed(2)})`); });
-      
-      // Add delivery fee
-      const restaurant = ALL_RESTAURANTS.find(r => r.id === cart[0].restaurantId);
-      const deliveryFee = restaurant ? restaurant.deliveryFee : 0;
-      const finalTotal = total + deliveryFee;
-
-      lines.push('', `*Subtotal: R${total.toFixed(2)}*`);
-      lines.push(`*Delivery Fee: R${deliveryFee.toFixed(2)}*`);
-      lines.push(`*TOTAL: R${finalTotal.toFixed(2)}*`);
-      lines.push('', 'Please confirm this order and send payment (EFT/eWallet) details.');
-      
-      const msg = lines.join('\n');
-      ORDER_MESSAGE_CACHE = { msg, orderNumber };
-
-      // Open Modal for final confirmation
-      const modal = $('#order-modal-overlay');
-      $('#modal-order-num').textContent = orderNumber;
-      $('#modal-order-date').textContent = new Date().toLocaleDateString('en-ZA', { hour: '2-digit', minute: '2-digit' });
-      $('#modal-order-content').textContent = msg;
-      modal.style.display = 'flex';
-      
-      $('#modal-send-wa').onclick = handleOrderConfirm;
-      $('#modal-cancel').onclick = () => { modal.style.display = 'none'; };
-    }
-    
-    function handleOrderConfirm() {
-        if (!ORDER_MESSAGE_CACHE) return;
-        
-        const { msg, orderNumber } = ORDER_MESSAGE_CACHE;
-        const waNumber = getWaNumber();
-        const link = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
-        
-        window.open(link, 'whatsappPopup', 'width=600,height=700,resizable=yes,scrollbars=yes,toolbar=no,menubar=no');
-
-        incrementOrderNum();
-        clearCart();
-        updateCartCount();
-        
-        $('#success-order-num').textContent = orderNumber;
-        show('success');
-        
-        $('#order-modal-overlay').style.display = 'none';
-        ORDER_MESSAGE_CACHE = null;
-        
-        showToast("Sent!", `Order ${orderNumber} sent via WhatsApp.`, false, 3000);
-    }
-    
-    // --- Order Anything (General WhatsApp) ---
-    $('#order-anything-wa').addEventListener('click', ()=>{
-        if (!IS_OPEN) {
-            showToast("We're Closed", "Sorry, we're not taking orders right now.", true);
-            return;
+        function handleContactSubmit(form) {
+            if (highlightMissingFields(form)) return openAlert('warning', 'Yhoo!', 'Trying to whisper? We cant hear you if the fields are empty.');
+            const d = Object.fromEntries(new FormData(form).entries());
+            const text = `*GENERAL INQUIRY*%0A------------------------------%0A👤 *From:* ${d.name}%0A📞 *Phone:* ${d.phone}%0A%0A📝 *Message:* ${d.msg}%0A------------------------------`;
+            openAlert('success', 'Sharp-Sharp!', 'Message Captured! Redirecting to support...', `https://wa.me/27794573805?text=${text}`, decodeURIComponent(text));
         }
-        const waNumber = getWaNumber();
-        const zone = getZone() || 'Zone Not Selected';
-        const msg = `*SHESHA - GENERAL ORDER*\n\n*Delivery Zone:* ${zone}\n\nI need help ordering something specific in my area.`;
-        const link = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
-        window.open(link, 'whatsappPopup', 'width=600,height=700,resizable=yes,scrollbars=yes,toolbar=no,menubar=no');
-    });
 
-
-    // -----------------------------------------------------------
-    // ===== INIT & EVENT BINDINGS =====
-    // -----------------------------------------------------------
-
-    // Listen to all nav links (desktop and mobile)
-    $$('[data-nav]').forEach(n=> n.addEventListener('click', (e)=>{
-      e.preventDefault();
-      const targetNav = n.dataset.nav;
-      
-      if (n.classList.contains('disabled')) {
-          showToast("We're Closed", "We are not taking orders right now. Please check back during trading hours.", true);
-          return;
-      }
-      
-      if(targetNav ==='restaurants' && !getZone()){
-        showToast("Select Your Zone", "Please choose your delivery area first to see available stores.", true);
-        return;
-      }
-      if(targetNav ==='cart' && !getZone()){
-        showToast("Select Your Zone", "Please choose your delivery area first.", true);
-        return;
-      }
-      show(targetNav);
-    }));
-    
-    // Admin Panel Actions
-    $('#admin-force-open').addEventListener('click', () => {
-        localStorage.setItem('shesha_admin_status', 'OPEN');
-        masterTimeUpdater(); // Force refresh
-    });
-    $('#admin-force-close').addEventListener('click', () => {
-        localStorage.setItem('shesha_admin_status', 'CLOSED');
-        masterTimeUpdater(); // Force refresh
-    });
-    $('#admin-set-wa').addEventListener('click', () => {
-        const input = $('#admin-wa-input');
-        const num = input.value.trim();
-        if (num.match(/^0\d{9}$/)) {
-            localStorage.setItem('shesha_admin_wa', num);
-            input.value = '';
-            showToast("Success!", `Admin WA set to: ${num}`, false, 3000);
-            masterTimeUpdater(); // Update display
-        } else {
-             showToast("Error!", "Please enter a valid 10-digit South African number starting with 0.", true);
+        function handleReviewSubmit(form) {
+            if (highlightMissingFields(form)) return openAlert('warning', 'No Gossip?', 'Thats a grunt, not a review. Spill the tea properly!');
+            const d = Object.fromEntries(new FormData(form).entries());
+            const text = `*KASI REVIEW*%0A------------------------------%0A👤 *User:* ${d.name}%0A📍 *Area:* ${d.area}%0A%0A📝 *Tea:* ${d.review}%0A------------------------------`;
+            openAlert('success', 'Sharp-Sharp!', 'Review Captured! We will verify and post it soon.', `https://wa.me/27794573805?text=${text}`, decodeURIComponent(text));
         }
-    });
-
-    document.getElementById('place-order').addEventListener('click', generateWhatsApp);
-    $('#order-modal-close').addEventListener('click', () => { $('#order-modal-overlay').style.display = 'none'; });
-    $('#toast-modal-close').addEventListener('click', () => { $('#toast-modal-overlay').style.display = 'none'; });
-    $('#toast-okay').addEventListener('click', () => { $('#toast-modal-overlay').style.display = 'none'; });
-    
-    // Handle clicks on brand logo (mobile and desktop)
-    $$('.brand').forEach(brand => brand.addEventListener('click', () => show('index')));
-
-
-    document.addEventListener('DOMContentLoaded',()=>{ 
-      // BUG FIX: Move this function definition before it is called
-      const PLACEHOLDER_IMG = (text) => `https://placehold.co/400x300/FDBF18/FFFFFF?text=${encodeURIComponent(text)}`;
-
-      // Initialize time once at start
-      masterTimeUpdater(); 
-      // Set interval for live updates (every 1 second)
-      setInterval(masterTimeUpdater, 1000); 
-
-      // Set initial admin WA number display
-      $('#current-wa-number').textContent = getWaNumber();
-      
-      initIndex();
-      updateCartCount();
-      
-      // Show initial view
-      show('index');
-    });
-    
-  </script>
+    </script>
 </body>
 </html>
