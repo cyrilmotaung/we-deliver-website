@@ -2,13 +2,22 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>We Deliver | Coal City Express (The Only Hustle That Works)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- 
+      DEVELOPER: [Your Name]
+      PROJECT: We Deliver Logistics (Witbank)
+      VALUE: R20,000.00
+      VERSION: 2.0.0 (STREET READY)
+    -->
+    <title>We Deliver | Coal City Express</title>
     
-    <!-- PWA & SEO -->
-    <meta name="description" content="Witbank's most reliable delivery hustle. Ackerville, Lynville, and beyond. We navigate the dust, you stay on the couch.">
-    <meta name="theme-color" content="#f97316">
+    <!-- PWA / App-Like Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="We Deliver">
+    <meta name="theme-color" content="#f97316">
+    <link rel="apple-touch-icon" href="https://api.dicebear.com/7.x/shapes/svg?seed=WeDeliver">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -16,11 +25,12 @@
         body {
             font-family: 'Inter', sans-serif;
             -webkit-tap-highlight-color: transparent;
+            overscroll-behavior-y: contain;
         }
         .tracking-tighter { letter-spacing: -0.05em; }
         .tracking-widest { letter-spacing: 0.1em; }
         
-        /* Integrated Custom UI */
+        /* Custom UI Elements */
         select, input, textarea {
             appearance: none;
             background-color: #ffffff;
@@ -33,19 +43,18 @@
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23f97316' stroke-width='3'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 1rem center;
-            background-size: 1rem;
-            padding-right: 3rem;
+            background-size: 0.8rem;
+            padding-right: 2.5rem;
             cursor: pointer;
         }
 
         input:focus, select:focus, textarea:focus {
             border-color: #f97316;
             outline: none;
-            box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.15);
+            box-shadow: 0 10px 20px -5px rgba(249, 115, 22, 0.1);
             transform: translateY(-1px);
         }
 
-        /* Error Highlights */
         .field-error {
             border-color: #ef4444 !important;
             background-color: #fef2f2 !important;
@@ -54,46 +63,45 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Smooth Transitions */
+        /* Smooth Section Switching */
         .page-content {
             display: none;
-            animation: pageIn 0.5s ease-out forwards;
+            animation: pageIn 0.4s ease-out forwards;
         }
-        .page-active {
-            display: block;
-        }
+        .page-active { display: block; }
 
         @keyframes pageIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Fixed Slider Physics */
+        /* Fixed Slider Card Physics - NO SQUISHING */
         .slider-item {
             flex: 0 0 280px !important;
-            flex-shrink: 0 !important;
+            min-width: 280px !important;
             scroll-snap-align: center;
         }
 
         .cartoon-icon {
             stroke-width: 2.5px;
-            filter: drop-shadow(1px 1px 0px rgba(0,0,0,0.05));
+            filter: drop-shadow(1px 1px 0px rgba(0,0,0,0.03));
         }
 
+        /* Compact Manifest Card */
         .manifest-card {
             background: #fdfdfd;
-            border-radius: 1.25rem;
-            padding: 1.25rem;
+            border-radius: 1rem;
+            padding: 1rem;
             text-align: left;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: #334155;
             border: 2px dashed #e2e8f0;
             white-space: pre-wrap;
         }
 
-        .alert-success { border-top: 8px solid #10b981 !important; }
-        .alert-warning { border-top: 8px solid #f97316 !important; }
+        .alert-success { border-top: 6px solid #10b981 !important; }
+        .alert-warning { border-top: 6px solid #f97316 !important; }
     </style>
 </head>
 <body class="bg-[#F8FAFC] text-slate-800 selection:bg-orange-500 selection:text-white overflow-x-hidden text-left">
@@ -106,24 +114,24 @@
                     <svg viewBox="0 0 24 24" class="text-white w-5 h-5 cartoon-icon" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                 </div>
                 <div class="flex flex-col leading-tight text-left">
-                    <span class="text-lg md:text-xl font-black uppercase tracking-tighter text-slate-900 leading-none">WE <span class="text-orange-500">DELIVER</span></span>
-                    <span class="font-bold uppercase tracking-widest text-[8px] text-slate-400 mt-1">Witbank Survival Squad</span>
+                    <span class="text-lg font-black uppercase tracking-tighter text-slate-900 leading-none">WE <span class="text-orange-500">DELIVER</span></span>
+                    <span class="font-bold uppercase tracking-widest text-[8px] text-slate-400 mt-1">Witbank Express</span>
                 </div>
             </div>
 
             <div class="hidden lg:flex gap-6 items-center">
-                <button onclick="navigateTo('home')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all border-b-2 border-transparent">Home</button>
-                <button onclick="navigateTo('about')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all border-b-2 border-transparent">Our Story</button>
-                <button onclick="navigateTo('services')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all border-b-2 border-transparent">Services</button>
-                <button onclick="navigateTo('skills')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all border-b-2 border-transparent">Academy</button>
-                <button onclick="navigateTo('reviews')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all border-b-2 border-transparent">Receipts</button>
-                <button onclick="navigateTo('contact')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all border-b-2 border-transparent">Contact</button>
+                <button onclick="navigateTo('home')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all">Home</button>
+                <button onclick="navigateTo('about')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all">Our Story</button>
+                <button onclick="navigateTo('services')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all">Services</button>
+                <button onclick="navigateTo('skills')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all">Academy</button>
+                <button onclick="navigateTo('reviews')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all">Receipts</button>
+                <button onclick="navigateTo('contact')" class="nav-link font-bold uppercase tracking-widest text-[9px] text-slate-500 hover:text-orange-500 transition-all">Contact</button>
                 <button onclick="navigateTo('order')" class="bg-slate-900 text-white px-6 py-2.5 rounded-full shadow-lg hover:bg-orange-500 transition-all font-black uppercase tracking-widest text-[9px] active:scale-95">
-                    Faka iOrder
+                    Order Now
                 </button>
             </div>
 
-            <button onclick="toggleMenu()" class="lg:hidden p-2.5 text-slate-900 bg-slate-50 rounded-2xl border border-slate-200">
+            <button onclick="toggleMenu()" class="lg:hidden p-2 text-slate-900 bg-slate-50 rounded-xl border border-slate-200">
                 <svg id="menu-icon" viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 <svg id="close-icon" viewBox="0 0 24 24" class="w-6 h-6 hidden" fill="none" stroke="currentColor"><path d="M18 6L6 18M6 6l12 12"></path></svg>
             </button>
@@ -131,17 +139,15 @@
     </nav>
 
     <!-- MOBILE MENU -->
-    <div id="mobile-menu" class="lg:hidden fixed inset-0 top-[64px] bg-white z-50 translate-x-full opacity-0 transition-all duration-500 overflow-y-auto">
-        <div class="p-8 flex flex-col items-center justify-center space-y-6 text-center">
-            <div class="grid grid-cols-1 w-full gap-2 text-center">
-                <button onclick="navigateTo('home')" class="py-5 text-2xl font-black uppercase text-slate-900 border-b border-slate-100">Home</button>
-                <button onclick="navigateTo('about')" class="py-5 text-2xl font-black uppercase text-slate-900 border-b border-slate-100">Our Story</button>
-                <button onclick="navigateTo('services')" class="py-5 text-2xl font-black uppercase text-slate-900 border-b border-slate-100">Services</button>
-                <button onclick="navigateTo('skills')" class="py-5 text-2xl font-black uppercase text-slate-900 border-b border-slate-100">Academy</button>
-                <button onclick="navigateTo('reviews')" class="py-5 text-2xl font-black uppercase text-slate-900 border-b border-slate-100">Receipts</button>
-                <button onclick="navigateTo('contact')" class="py-5 text-2xl font-black uppercase text-slate-900 border-b border-slate-100">Contact</button>
-            </div>
-            <button onclick="navigateTo('order')" class="w-full py-6 bg-orange-500 text-white rounded-3xl font-black uppercase shadow-2xl">Place Order Now</button>
+    <div id="mobile-menu" class="lg:hidden fixed inset-0 top-[60px] bg-white z-50 translate-x-full opacity-0 transition-all duration-500">
+        <div class="p-8 flex flex-col items-center justify-center space-y-4">
+            <button onclick="navigateTo('home')" class="py-4 text-xl font-black uppercase text-slate-900 border-b border-slate-50 w-full">Home</button>
+            <button onclick="navigateTo('about')" class="py-4 text-xl font-black uppercase text-slate-900 border-b border-slate-50 w-full">Story</button>
+            <button onclick="navigateTo('services')" class="py-4 text-xl font-black uppercase text-slate-900 border-b border-slate-50 w-full">Services</button>
+            <button onclick="navigateTo('skills')" class="py-4 text-xl font-black uppercase text-slate-900 border-b border-slate-50 w-full">Academy</button>
+            <button onclick="navigateTo('reviews')" class="py-4 text-xl font-black uppercase text-slate-900 border-b border-slate-50 w-full">Receipts</button>
+            <button onclick="navigateTo('contact')" class="py-4 text-xl font-black uppercase text-slate-900 border-b border-slate-50 w-full">Contact</button>
+            <button onclick="navigateTo('order')" class="w-full py-6 bg-orange-500 text-white rounded-3xl font-black uppercase shadow-xl mt-4">Faka iOrder</button>
         </div>
     </div>
 
@@ -149,25 +155,25 @@
     <main class="pt-16">
         
         <!-- PAGE: HOME -->
-        <section id="page-home" class="page-content page-active py-12 md:py-24 px-6 text-left">
-            <div class="max-w-7xl mx-auto space-y-16">
+        <section id="page-home" class="page-content page-active py-8 md:py-16 px-6 text-left">
+            <div class="max-w-7xl mx-auto space-y-12">
                 <!-- HERO -->
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
-                    <div class="space-y-8">
+                <div class="grid lg:grid-cols-2 gap-10 items-center">
+                    <div class="space-y-6">
                         <div class="inline-flex items-center gap-2 px-5 py-2 bg-orange-100 text-orange-600 rounded-full border border-orange-200">
-                            <span class="font-black uppercase tracking-widest text-[10px]">Faster than a blue-light convoy</span>
+                            <span class="font-black uppercase tracking-widest text-[9px]">Witbank's First Choice Hustle</span>
                         </div>
                         <h1 class="font-black uppercase tracking-tighter text-slate-900 text-5xl md:text-7xl lg:text-8xl leading-[0.85] text-left">
-                            KASI <br/><span class="text-orange-500 text-left">EXPRESS.</span>
+                            COAL <br/><span class="text-orange-500 text-left">EXPRESS.</span>
                         </h1>
-                        <p class="text-slate-500 text-lg md:text-xl font-medium max-w-lg leading-relaxed text-left">
+                        <p class="text-slate-500 text-base md:text-xl font-medium max-w-lg leading-relaxed text-left">
                             We navigate the heart of Witbank so you can stay on the couch. Fast, reliable, and slightly more honest than your last promise. 
                         </p>
-                        <div class="flex flex-col sm:flex-row gap-4 pt-4 text-center">
-                            <button onclick="navigateTo('order')" class="px-10 py-5 bg-orange-500 text-white font-black rounded-3xl shadow-xl hover:bg-slate-900 transition-all uppercase text-sm active:scale-95 flex items-center justify-center gap-3">
-                                Faka iOrder <svg viewBox="0 0 24 24" class="w-5 h-5 cartoon-icon" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                            <button onclick="navigateTo('order')" class="px-10 py-5 bg-orange-500 text-white font-black rounded-3xl shadow-xl hover:bg-slate-900 transition-all uppercase text-[10px] tracking-widest active:scale-95 flex items-center justify-center gap-3">
+                                Faka Order <svg viewBox="0 0 24 24" class="w-5 h-5 cartoon-icon" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
                             </button>
-                            <button onclick="navigateTo('about')" class="px-10 py-5 bg-white text-slate-900 border-2 border-slate-100 font-black rounded-3xl shadow-sm hover:border-orange-500 transition-all uppercase text-sm">Our Sins</button>
+                            <button onclick="navigateTo('services')" class="px-10 py-5 bg-white text-slate-900 border-2 border-slate-100 font-black rounded-3xl shadow-sm hover:border-orange-500 transition-all uppercase text-[10px] tracking-widest">Risks & Pricing</button>
                         </div>
                     </div>
                     <div class="relative">
@@ -181,20 +187,20 @@
                     </div>
                 </div>
 
-                <!-- RADAR / TERRITORY -->
-                <div class="py-12 border-t border-slate-100 text-left bg-orange-50/20 rounded-[3rem] p-8 md:p-14">
+                <!-- RADAR ( HIGH VISIBILITY - THE GRID ) -->
+                <div class="py-12 bg-orange-50/40 rounded-[3rem] p-8 md:p-14 border border-orange-100/50">
                     <div class="mb-10 space-y-2 text-left flex flex-col md:flex-row md:items-end justify-between gap-6">
                         <div>
-                            <h2 class="font-black uppercase tracking-tighter text-slate-900 text-4xl">Our <span class="text-orange-500">Radar.</span></h2>
-                            <p class="text-slate-400 font-bold uppercase tracking-widest text-[10px] italic">Operators active in these zones. GPS is for amateurs.</p>
+                            <h2 class="font-black uppercase tracking-tighter text-slate-900 text-4xl">The <span class="text-orange-500 text-left">Radar.</span></h2>
+                            <p class="text-slate-400 font-bold uppercase tracking-widest text-[10px] italic">Coverage zone. We know every pothole from Ackerville to Clewer.</p>
                         </div>
-                        <div class="bg-white px-6 py-4 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3 shrink-0">
-                            <div class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></div>
-                            <span class="font-black uppercase tracking-widest text-[9px] text-slate-600">Active Riders: 52</span>
+                        <div class="bg-white px-5 py-3 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-3 shrink-0">
+                            <div class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></div>
+                            <span class="font-black uppercase tracking-widest text-[9px] text-slate-600">Active Operators: 52</span>
                         </div>
                     </div>
-                    <div id="territory-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                        <!-- JS Render -->
+                    <div id="territory-grid" class="grid grid-cols-2 md:grid-cols-6 gap-4">
+                        <!-- JS Loops zones here -->
                     </div>
                 </div>
             </div>
@@ -206,24 +212,24 @@
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="space-y-8 text-left">
                         <div class="border-l-8 border-orange-500 pl-8 text-left">
-                            <h2 class="font-black uppercase tracking-tighter text-slate-900 text-5xl md:text-6xl leading-tight">Roots in <span class="text-orange-500">The Dust.</span></h2>
+                            <h2 class="font-black uppercase tracking-tighter text-slate-900 text-4xl md:text-6xl leading-tight text-left">Roots in <span class="text-orange-500 text-left">The Dust.</span></h2>
                         </div>
-                        <p class="text-slate-600 text-lg leading-relaxed font-medium">Born in 2018 with one bike and a lot of confidence. If we can survive Raadsaal Road traffic at month-end, we can deliver anything.</p>
-                        <p class="text-slate-600 text-lg leading-relaxed font-medium text-left">Our riders are your brothers. They know where Ackerville ends and the potholes begin.</p>
+                        <p class="text-slate-600 text-lg leading-relaxed font-medium">Born in 2018 with one bike and a lot of confidence. If we can survive month-end traffic on Raadsaal Road, we can deliver anything.</p>
+                        <p class="text-slate-600 text-lg leading-relaxed font-medium text-left">Our riders are your neighbors. They know where Ackerville ends and the potholes begin. We're part of the furniture.</p>
                         <div class="grid grid-cols-2 gap-4 pt-4 text-left">
                             <div class="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 shadow-sm text-left">
-                                <p class="text-3xl font-black text-orange-500">20k</p>
-                                <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-2">Drops Survived</p>
+                                <p class="text-3xl font-black text-orange-500 text-left">20k</p>
+                                <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-2 text-left">Drops Done</p>
                             </div>
                             <div class="p-8 bg-slate-900 rounded-[2.5rem] text-white text-left">
-                                <p class="text-3xl font-black">50+</p>
-                                <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-2">Brave Riders</p>
+                                <p class="text-3xl font-black text-left">50+</p>
+                                <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-2 text-left text-left">Brave Riders</p>
                             </div>
                         </div>
                     </div>
                     <div class="bg-orange-50 p-12 rounded-[4rem] border-4 border-white shadow-xl text-left">
-                        <h3 class="font-black uppercase tracking-tighter text-slate-900 text-3xl mb-4">The Real Ubuntu</h3>
-                        <p class="text-orange-900/70 font-medium leading-relaxed italic text-lg text-left">"Ubuntu means your delivery is safe. It also means if we get a puncture, the whole neighborhood stops to tell the rider how to fix it instead of helping. We love Witbank."</p>
+                        <h3 class="font-black uppercase tracking-tighter text-slate-900 text-3xl mb-4 text-left">The Real Ubuntu</h3>
+                        <p class="text-orange-900/70 font-medium leading-relaxed italic text-lg text-left">"Ubuntu means your delivery is safe. It also means if we get a puncture, the whole neighborhood stops to tell the rider how to fix it instead of actually helping."</p>
                     </div>
                 </div>
             </div>
@@ -234,10 +240,10 @@
             <div class="max-w-7xl mx-auto space-y-12">
                 <div class="text-center space-y-4">
                     <h2 class="font-black uppercase tracking-tighter text-slate-900 text-5xl md:text-7xl text-center">Siyasebenza</h2>
-                    <p class="font-bold uppercase tracking-widest text-xs text-orange-500 text-center text-center">Witbank's Hustle Infrastructure</p>
+                    <p class="font-bold uppercase tracking-widest text-xs text-orange-500 text-center text-center">Comprehensive Witbank Logistics Hub</p>
                 </div>
-                <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8 text-left">
-                    <!-- JS Render -->
+                <div id="services-grid" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 pt-8 text-left">
+                    <!-- Cards via JS -->
                 </div>
             </div>
         </section>
@@ -247,34 +253,28 @@
             <div class="max-w-7xl mx-auto space-y-16 text-left">
                 <div class="flex flex-col md:flex-row justify-between items-end gap-8 text-left text-left">
                     <div class="max-w-2xl border-l-8 border-emerald-500 pl-8 text-left">
-                        <span class="font-bold uppercase tracking-widest text-xs text-emerald-600 text-left">No Degree Required</span>
-                        <h2 class="font-black uppercase tracking-tighter text-slate-900 text-4xl md:text-7xl mt-4 text-left">The <span class="text-emerald-500 text-left">Academy.</span></h2>
+                        <span class="font-bold uppercase tracking-widest text-xs text-emerald-600 text-left text-left">Join the hustle</span>
+                        <h2 class="font-black uppercase tracking-tighter text-slate-900 text-4xl md:text-7xl mt-4 text-left text-left">The <span class="text-emerald-500 text-left">Academy.</span></h2>
                     </div>
                     <p class="max-w-sm text-slate-500 font-medium italic text-left">"Teaching youth how to drive like their lives depend on it. Because in Witbank, they do. Hustle cert included."</p>
                 </div>
 
                 <div class="relative w-full overflow-hidden text-left">
-                    <div id="academy-slider" class="flex flex-row flex-nowrap overflow-x-auto snap-x snap-mandatory no-scrollbar gap-8 pb-10 w-full text-left">
-                        <!-- JS Render -->
+                    <div id="academy-slider" class="flex flex-row flex-nowrap overflow-x-auto snap-x snap-mandatory no-scrollbar gap-6 pb-10 w-full text-left">
+                        <!-- Rendered JS -->
                     </div>
                 </div>
 
                 <div class="grid lg:grid-cols-2 gap-8 items-stretch pt-12 text-left">
-                    <div class="bg-emerald-600 p-12 rounded-[3.5rem] text-white space-y-8 flex flex-col justify-center shadow-2xl text-left text-left">
-                        <h3 class="font-black uppercase tracking-tighter text-4xl leading-tight text-left">Get off the <br/>Corner.</h3>
-                        <p class="text-emerald-50 text-lg opacity-90 leading-relaxed text-left text-left">Fully sponsored certification for local residents aged 18-25. We supply the bike, you supply the focus. Next intake: March 2026.</p>
+                    <div class="bg-emerald-600 p-12 rounded-[3.5rem] text-white flex flex-col justify-center shadow-xl text-left">
+                        <h3 class="font-black uppercase tracking-tighter text-3xl leading-tight text-left">Apply before <br/>you're 30.</h3>
+                        <p class="text-emerald-50 text-sm md:text-base opacity-90 mt-4 leading-relaxed text-left text-left">Fully sponsored certification for local residents aged 18-25. We supply the bike, you supply the focus. Next intake: March 2026.</p>
                     </div>
-                    <div class="bg-slate-50 p-12 rounded-[3.5rem] border border-slate-200 shadow-inner text-left">
+                    <div class="bg-slate-50 p-12 rounded-[3.5rem] border border-slate-200 shadow-inner text-left text-left">
                         <h4 class="font-black uppercase text-2xl mb-8 text-emerald-600 text-left">Academy Inquiry</h4>
                         <form id="academy-form" onsubmit="event.preventDefault(); handleAcademySubmit(this);" class="space-y-6 text-left">
-                            <div class="space-y-1 text-left text-left">
-                                <label class="font-bold uppercase tracking-widest text-[9px] text-slate-400 ml-4">Government Name *</label>
-                                <input type="text" name="name" required placeholder="Legal Name" class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none">
-                            </div>
-                            <div class="space-y-1 text-left text-left">
-                                <label class="font-bold uppercase tracking-widest text-[9px] text-slate-400 ml-4 text-left text-left text-left">Phone Number *</label>
-                                <input type="tel" name="phone" required placeholder="0..." class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none">
-                            </div>
+                            <input type="text" name="name" required placeholder="Full Name *" class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none text-left">
+                            <input type="tel" name="phone" required placeholder="Digits (Phone) *" class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none text-left">
                             <button type="submit" class="w-full py-6 bg-slate-900 text-white font-black rounded-3xl uppercase tracking-widest text-xs shadow-xl active:scale-95 transition-all text-center">Inquire Now</button>
                         </form>
                     </div>
@@ -284,28 +284,28 @@
 
         <!-- PAGE: REVIEWS -->
         <section id="page-reviews" class="page-content py-20 px-6 bg-[#F8FAFC] text-left">
-            <div class="max-w-7xl mx-auto space-y-16 text-left text-left">
-                <div class="border-l-8 border-orange-500 pl-8 text-left">
-                    <span class="font-bold uppercase tracking-widest text-xs text-orange-500 text-left">Receipts</span>
-                    <h2 class="font-black uppercase tracking-tighter text-slate-900 text-5xl md:text-7xl mt-4 text-left">People <span class="text-orange-500 text-left text-left text-left">Claim.</span></h2>
+            <div class="max-w-7xl mx-auto space-y-16 text-left">
+                <div class="border-l-8 border-orange-500 pl-8 text-left text-left">
+                    <span class="font-bold uppercase tracking-widest text-xs text-orange-500 text-left">Feedback</span>
+                    <h2 class="font-black uppercase tracking-tighter text-slate-900 text-5xl md:text-7xl mt-4 text-left text-left text-left">People <span class="text-orange-500 text-left">Claim.</span></h2>
                 </div>
 
                 <div id="reviews-slider" class="flex flex-row flex-nowrap overflow-x-auto snap-x snap-mandatory no-scrollbar gap-8 pb-10 w-full text-left">
-                    <!-- Rendered by JS -->
+                    <!-- Rendered JS -->
                 </div>
 
-                <div class="pt-12 border-t border-slate-100 text-left">
+                <div class="pt-12 border-t border-slate-100 text-left text-left">
                     <div class="bg-slate-50 p-10 md:p-14 rounded-[3.5rem] border border-slate-100 shadow-sm text-left">
-                        <h3 class="font-black uppercase tracking-tighter text-slate-900 text-2xl mb-8 text-left text-left">Spill The Tea.</h3>
+                        <h3 class="font-black uppercase tracking-tighter text-slate-900 text-2xl mb-8 text-left text-left text-left">Spill The Tea.</h3>
                         <form id="review-form" onsubmit="event.preventDefault(); handleReviewSubmit(this);" class="space-y-6 text-left">
-                            <div class="grid md:grid-cols-2 gap-8 text-left text-left">
-                                <input type="text" name="name" required placeholder="Grootman / Sis Name *" class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none">
-                                <select name="area" required class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none">
+                            <div class="grid md:grid-cols-2 gap-8 text-left">
+                                <input type="text" name="name" required placeholder="Your Name / Grootman *" class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none text-left">
+                                <select name="area" required class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none text-left">
                                     <option value="">Suburb *</option><option>Ackerville</option><option>Lynville</option><option>Thushanang</option><option>Clewer</option><option>Eznameni</option>
                                 </select>
-                                <textarea name="review" required placeholder="The Review (Tell the truth) *" rows="4" class="md:col-span-2 w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent text-left outline-none"></textarea>
+                                <textarea name="review" required placeholder="Tell the truth..." rows="4" class="md:col-span-2 w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none text-left"></textarea>
                             </div>
-                            <button type="submit" class="w-full py-6 bg-orange-500 text-white font-black rounded-3xl uppercase tracking-widest text-xs shadow-xl active:scale-95 transition-all text-center">Post Receipt</button>
+                            <button type="submit" class="w-full py-6 bg-slate-900 text-white font-black rounded-3xl uppercase tracking-widest text-xs shadow-xl active:scale-95 transition-all text-center">Post Receipt</button>
                         </form>
                     </div>
                 </div>
@@ -315,21 +315,21 @@
         <!-- PAGE: CONTACT -->
         <section id="page-contact" class="page-content py-20 px-6 bg-white overflow-hidden text-left">
             <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center text-left text-left">
-                <div class="space-y-10 text-left text-left text-left">
-                    <div class="border-l-8 border-orange-500 pl-8 text-left text-left">
-                        <h2 class="font-black uppercase tracking-tighter text-slate-900 text-5xl md:text-7xl leading-tight text-left">Reach <br/><span class="text-orange-500 text-left text-left">The HQ.</span></h2>
+                <div class="space-y-10 text-left text-left">
+                    <div class="border-l-8 border-orange-500 pl-8 text-left">
+                        <h2 class="font-black uppercase tracking-tighter text-slate-900 text-5xl md:text-7xl leading-tight text-left text-left text-left">Reach <br/><span class="text-orange-500 text-left text-left">The HQ.</span></h2>
                     </div>
-                    <div class="flex items-start gap-6 p-8 bg-slate-50 rounded-[3rem] border border-slate-100 shadow-sm text-left">
+                    <div class="flex items-start gap-6 p-8 bg-slate-50 rounded-[3rem] border border-slate-100 shadow-sm text-left text-left">
                         <div class="bg-white p-4 rounded-2xl shadow-sm text-orange-500 shrink-0 text-left text-left"><svg viewBox="0 0 24 24" class="w-6 h-6 cartoon-icon" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
-                        <div class="text-left text-left text-left"><p class="font-bold uppercase tracking-widest text-[9px] text-slate-400 mb-1 text-left">Central Station</p><p class="font-black text-lg uppercase tracking-tighter text-slate-900 text-left text-left text-left">52 Raadsaal Road, Witbank</p></div>
+                        <div class="text-left text-left text-left text-left"><p class="font-bold uppercase tracking-widest text-[9px] text-slate-400 mb-1 text-left text-left text-left">Central Post</p><p class="font-black text-lg uppercase tracking-tighter text-slate-900 text-left text-left text-left text-left">52 Raadsaal Road, Witbank</p></div>
                     </div>
                 </div>
                 <div class="bg-slate-50 p-12 rounded-[4rem] border border-slate-200 shadow-inner text-left text-left">
-                    <h3 class="font-black uppercase text-2xl mb-8 text-left text-left">Send WhatsApp Inquiry</h3>
-                    <form onsubmit="event.preventDefault(); handleContactSubmit(this);" class="space-y-6 text-left text-left text-left">
-                        <input type="text" name="name" required placeholder="Legal Name *" class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none">
-                        <input type="tel" name="phone" required placeholder="Digits (Phone) *" class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none">
-                        <textarea name="msg" placeholder="How can we help? *" rows="4" class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent resize-none outline-none"></textarea>
+                    <h3 class="font-black uppercase text-2xl mb-8 text-left text-left">Submit Inquiry</h3>
+                    <form onsubmit="event.preventDefault(); handleContactSubmit(this);" class="space-y-6 text-left text-left text-left text-left">
+                        <input type="text" name="name" required placeholder="Legal Name *" class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none text-left">
+                        <input type="tel" name="phone" required placeholder="Digits (Phone) *" class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent outline-none text-left">
+                        <textarea name="msg" placeholder="How can we help? *" rows="4" class="w-full px-8 py-5 rounded-3xl bg-white shadow-sm font-bold border-2 border-transparent resize-none outline-none text-left"></textarea>
                         <button type="submit" class="w-full py-6 bg-slate-900 text-white font-black rounded-3xl uppercase tracking-widest text-xs shadow-xl active:scale-95 transition-all text-center">Talk To Us</button>
                     </form>
                 </div>
@@ -337,75 +337,73 @@
         </section>
 
         <!-- PAGE: ORDER -->
-        <section id="page-order" class="page-content py-20 px-6 bg-[#F8FAFC] text-left">
+        <section id="page-order" class="page-content py-16 px-6 bg-[#F8FAFC] text-left">
             <div class="max-w-4xl mx-auto space-y-12">
                 <div class="text-center space-y-4 text-center">
                     <h2 class="font-black uppercase tracking-tighter text-slate-900 text-5xl md:text-7xl leading-tight text-center text-center text-center">Capture <br/><span class="text-orange-500 text-center text-center text-center">Manifest.</span></h2>
-                    <p class="text-slate-400 font-bold uppercase tracking-widest text-[10px] text-center italic text-center">"Fill the form correctly. Don't make us play detective at the gate."</p>
+                    <p class="text-slate-400 font-bold uppercase tracking-widest text-[9px] text-center italic text-center text-center">"Fill correctly. Don't make us play detective at the gate."</p>
                 </div>
 
-                <form id="order-form" onsubmit="event.preventDefault(); handleOrderSubmission(this);" class="space-y-8 text-left text-left text-left">
-                    <!-- Receiver -->
-                    <div class="bg-white p-10 rounded-[3rem] shadow-sm relative border-b-8 border-emerald-500 border border-slate-100 text-left">
+                <form id="order-form" onsubmit="event.preventDefault(); handleOrderSubmission(this);" class="space-y-8 text-left text-left">
+                    <div class="bg-white p-10 rounded-[3rem] shadow-sm relative border-b-8 border-emerald-500 border border-slate-100 text-left text-left">
                        <div class="flex items-center gap-4 mb-10 text-left text-left">
-                          <div class="bg-emerald-50 p-4 rounded-2xl text-emerald-600 shadow-sm shrink-0 text-left text-left text-left"><svg viewBox="0 0 24 24" class="text-2xl cartoon-icon" fill="none" stroke="currentColor"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
-                          <h3 class="font-black uppercase tracking-tighter text-slate-900 text-2xl text-left text-left">Receiver</h3>
+                          <div class="bg-emerald-50 p-3 rounded-2xl text-emerald-600 shadow-sm shrink-0 text-left text-left text-left"><svg viewBox="0 0 24 24" class="text-xl cartoon-icon" fill="none" stroke="currentColor"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+                          <h3 class="font-black uppercase tracking-tighter text-slate-900 text-2xl text-left text-left text-left">Receiver</h3>
                        </div>
                        <div class="grid md:grid-cols-2 gap-8 text-left text-left text-left">
                           <div class="space-y-1 text-left text-left">
-                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4">Full Name *</label>
+                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left">Full Name *</label>
                             <input name="name" required type="text" placeholder="Name" class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left">
                           </div>
                           <div class="space-y-1 text-left text-left">
-                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left">Digits (Phone) *</label>
+                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left">Phone Number *</label>
                             <input name="phone" required type="tel" placeholder="0..." class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left">
                           </div>
                        </div>
                     </div>
 
-                    <!-- Manifest -->
-                    <div class="bg-white p-10 rounded-[3rem] shadow-sm relative border-b-8 border-orange-500 border border-slate-100 text-left text-left text-left text-left">
+                    <div class="bg-white p-10 rounded-[3rem] shadow-sm relative border-b-8 border-orange-500 border border-slate-100 text-left text-left text-left">
                        <div class="flex items-center gap-4 mb-10 text-left text-left">
-                          <div class="bg-orange-50 p-4 rounded-2xl text-orange-500 shadow-sm shrink-0 text-left text-left text-left"><svg viewBox="0 0 24 24" class="text-2xl cartoon-icon" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path></svg></div>
-                          <h3 class="font-black uppercase tracking-tighter text-slate-900 text-2xl text-left text-left">The Manifest</h3>
+                          <div class="bg-orange-50 p-3 rounded-2xl text-orange-500 shadow-sm shrink-0 text-left text-left text-left"><svg viewBox="0 0 24 24" class="text-xl cartoon-icon" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path></svg></div>
+                          <h3 class="font-black uppercase tracking-tighter text-slate-900 text-2xl text-left text-left text-left">The Manifest</h3>
                        </div>
                        <div class="grid md:grid-cols-2 gap-8 text-left text-left text-left">
                           <div class="space-y-1 text-left text-left">
-                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left">Type *</label>
+                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left text-left">Type *</label>
                             <select id="category-select" name="category" required class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left">
                                 <option value="">Select Category</option><option>Fast Food</option><option>Groceries</option><option>Medication</option><option>Car Parts</option><option>Furniture</option><option>Parcels</option>
                             </select>
                           </div>
                           <div class="space-y-1 text-left text-left">
-                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left">Merchant *</label>
+                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left">Merchant *</label>
                             <input name="shop" required type="text" placeholder="Where from?" class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left">
                           </div>
                           <div class="md:col-span-2 space-y-1 text-left text-left">
-                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left">What's in the bag? *</label>
-                            <input name="items" required type="text" placeholder="Be specific..." class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left text-left">
+                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left">What's in the bag? *</label>
+                            <input name="items" required type="text" placeholder="Be specific..." class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left">
                           </div>
                        </div>
                     </div>
 
-                    <!-- Dropoff -->
-                    <div class="bg-white p-10 rounded-[3rem] shadow-sm relative border-b-8 border-blue-600 border border-slate-100 text-left text-left text-left text-left text-left">
-                       <div class="flex items-center gap-4 mb-10 text-left text-left text-left">
-                          <div class="bg-blue-50 p-4 rounded-2xl text-blue-600 shadow-sm shrink-0 text-left text-left text-left text-left"><svg viewBox="0 0 24 24" class="text-xl cartoon-icon" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path></svg></div>
-                          <h3 class="font-black uppercase tracking-tighter text-slate-900 text-2xl text-left text-left text-left text-left">Dropoff & Cash</h3>
+                    <!-- DROP ICON SCALE FIXED -->
+                    <div class="bg-white p-10 rounded-[3rem] shadow-sm relative border-b-8 border-blue-600 border border-slate-100 text-left text-left text-left text-left">
+                       <div class="flex items-center gap-4 mb-10 text-left text-left text-left text-left">
+                          <div class="bg-blue-50 p-3 rounded-2xl text-blue-600 shadow-sm shrink-0 text-left text-left text-left text-left"><svg viewBox="0 0 24 24" class="w-6 h-6 cartoon-icon" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path></svg></div>
+                          <h3 class="font-black uppercase tracking-tighter text-slate-900 text-2xl text-left text-left text-left text-left">Dropoff & Ransom</h3>
                        </div>
-                       <div class="grid md:grid-cols-2 gap-8 text-left text-left text-left">
-                          <div class="space-y-1 text-left text-left text-left">
-                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left text-left">Kasi *</label>
+                       <div class="grid md:grid-cols-2 gap-8 text-left text-left text-left text-left">
+                          <div class="space-y-1 text-left text-left">
+                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left">Kasi *</label>
                             <select name="area" required class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left">
                                 <option value="">Select Suburb</option><option>Ackerville</option><option>Lynville</option><option>Thushanang</option><option>Overline</option><option>Clewer</option><option>Eznameni</option>
                             </select>
                           </div>
-                          <div class="space-y-1 text-left text-left text-left">
-                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left text-left">Address *</label>
-                            <input name="streetAddress" required type="text" placeholder="House No. / Street" class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left">
+                          <div class="space-y-1 text-left text-left">
+                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left text-left text-left">Street Address *</label>
+                            <input name="streetAddress" required type="text" placeholder="Address..." class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left">
                           </div>
-                          <div class="md:col-span-2 space-y-1 text-left text-left text-left text-left">
-                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left text-left text-left">Payment Method *</label>
+                          <div class="md:col-span-2 space-y-1 text-left text-left">
+                            <label class="font-bold uppercase tracking-widest text-[10px] text-slate-400 ml-4 text-left text-left text-left text-left">Cash or Card? *</label>
                             <select name="payment" required class="w-full px-8 py-5 rounded-3xl font-bold text-base shadow-inner outline-none text-left text-left text-left text-left">
                                 <option value="Cash on Delivery">💵 Cash (Old School)</option>
                                 <option value="Card Machine on Delivery">💳 Card (Fancy)</option>
@@ -416,7 +414,7 @@
                     </div>
 
                     <button type="submit" class="group w-full py-10 bg-orange-500 text-white font-black rounded-full shadow-2xl hover:bg-slate-900 transition-all flex items-center justify-center gap-5 uppercase text-xl active:scale-95 border-4 border-white text-center text-center">
-                      <svg viewBox="0 0 24 24" class="w-8 h-8 cartoon-icon text-left text-left text-left" fill="none" stroke="currentColor"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg> Dispatch Manifest
+                      <svg viewBox="0 0 24 24" class="w-8 h-8 cartoon-icon text-left text-left" fill="none" stroke="currentColor"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg> Dispatch Now
                     </button>
                 </form>
             </div>
@@ -425,37 +423,37 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="py-16 px-6 text-center bg-white border-t border-slate-100 text-center">
-        <div class="max-w-4xl mx-auto space-y-8 flex flex-col items-center text-center text-center text-center text-center">
-            <div class="bg-orange-500 p-4 rounded-[1.5rem] shadow-xl text-center text-center text-center"><svg viewBox="0 0 24 24" class="text-white w-8 h-8 cartoon-icon text-center text-center text-center" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="currentColor"></path></svg></div>
-            <span class="text-2xl font-black uppercase text-slate-900 text-center text-center text-center text-center">WE <span class="text-orange-500 text-center text-center text-center text-center">DELIVER</span></span>
-            <p class="font-bold uppercase tracking-widest text-[10px] text-slate-400 italic text-center text-center text-center text-center">"I am because we are. Coal City Pride."</p>
-            <p class="pt-8 border-t border-slate-100 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-300 text-center text-center text-center text-center text-center text-center">
+    <footer class="py-12 px-6 text-center bg-white border-t border-slate-100 text-center">
+        <div class="max-w-4xl mx-auto space-y-8 flex flex-col items-center text-center text-center text-center">
+            <div class="bg-orange-500 p-2.5 rounded-xl shadow-xl text-center text-center"><svg viewBox="0 0 24 24" class="text-white w-7 h-7 cartoon-icon" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="currentColor"></path></svg></div>
+            <span class="text-2xl font-black uppercase text-slate-900 text-center text-center">WE <span class="text-orange-500 text-center text-center">DELIVER</span></span>
+            <p class="font-bold uppercase tracking-widest text-[9px] text-slate-400 italic text-center text-center">"I am because we are. Coal City Pride."</p>
+            <p class="pt-6 border-t border-slate-100 text-[8px] font-bold uppercase tracking-[0.2em] text-slate-300 text-center text-center text-center">
                 Disclaimer: We Deliver Logistics is not responsible for parcels lost in potholes, drivers abducted by mining ghosts, or the realization that coal isn't edible. Ubuntu sold separately.
             </p>
         </div>
     </footer>
 
-    <!-- MODAL -->
-    <div id="modal-container" class="hidden fixed inset-0 z-[300] flex items-center justify-center p-4 modal-backdrop animate-in fade-in duration-300 text-center text-center text-center">
-        <div id="modal-content" class="bg-white rounded-[2.5rem] p-6 md:p-8 max-w-xs w-full text-center shadow-2xl transform animate-in zoom-in-95 duration-300 flex flex-col items-center border-t-8 border-orange-500 text-center text-center text-center text-center">
-            <div id="modal-icon-container" class="p-3 bg-slate-50 rounded-full mb-4 flex items-center justify-center text-center text-center text-center text-center text-center text-center text-center"></div>
-            <h3 id="modal-title" class="text-xl font-black uppercase tracking-tighter text-slate-900 mb-1 text-center text-center text-center text-center text-center"></h3>
-            <p id="modal-message" class="text-slate-500 font-bold mb-4 text-[10px] uppercase text-center text-center text-center text-center text-center text-center"></p>
-            <div id="manifest-preview-container" class="w-full hidden mb-4 text-left text-left text-left text-left text-left text-left text-left text-left text-left"><div id="manifest-preview" class="manifest-card text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left"></div></div>
-            <div class="w-full space-y-3 text-center text-center text-center text-center text-center">
-                <a id="modal-whatsapp-btn" href="#" target="_blank" class="hidden py-4 bg-emerald-600 text-white font-black rounded-2xl uppercase tracking-widest text-xs hover:bg-emerald-700 transition-all flex items-center justify-center gap-4 shadow-xl text-center text-center text-center text-center text-center text-center">
-                    <svg viewBox="0 0 24 24" class="text-xl cartoon-icon text-center text-center text-center text-center text-center text-center text-center" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 11-7.6-10.6 8.38 8.38 0 013.8.9L21 3z"></path></svg> Confirm Manifest
+    <!-- MODAL ( SLEEK COMPACT VERSION ) -->
+    <div id="modal-container" class="hidden fixed inset-0 z-[300] flex items-center justify-center p-4 modal-backdrop animate-in fade-in duration-300 text-center text-center">
+        <div id="modal-content" class="bg-white rounded-[2rem] p-6 md:p-8 max-w-xs w-full text-center shadow-2xl transform animate-in zoom-in-95 duration-300 flex flex-col items-center border-t-8 border-orange-500 text-center text-center">
+            <div id="modal-icon-container" class="p-3 bg-slate-50 rounded-full mb-4 flex items-center justify-center text-center text-center"></div>
+            <h3 id="modal-title" class="text-xl font-black uppercase tracking-tighter text-slate-900 mb-1 text-center text-center text-center"></h3>
+            <p id="modal-message" class="text-slate-500 font-bold mb-4 text-[10px] uppercase text-center text-center text-center"></p>
+            <div id="manifest-preview-container" class="w-full hidden mb-4 text-left text-left text-left"><div id="manifest-preview" class="manifest-card text-left text-left text-left"></div></div>
+            <div class="w-full space-y-3 text-center text-center">
+                <a id="modal-whatsapp-btn" href="#" target="_blank" class="hidden py-4 bg-emerald-600 text-white font-black rounded-2xl uppercase tracking-widest text-xs hover:bg-emerald-700 transition-all flex items-center justify-center gap-4 shadow-xl text-center text-center text-center">
+                    <svg viewBox="0 0 24 24" class="text-xl cartoon-icon text-center" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 11-7.6-10.6 8.38 8.38 0 013.8.9L21 3z"></path></svg> Confirm Manifest
                 </a>
-                <button onclick="closeModal()" class="py-4 text-slate-400 font-black uppercase tracking-widest text-[10px] hover:text-slate-800 transition-colors text-center text-center text-center text-center text-center text-center">Back to Reality</button>
+                <button onclick="closeModal()" class="py-4 text-slate-400 font-black uppercase tracking-widest text-[10px] hover:text-slate-800 transition-colors text-center text-center text-center">Back to Reality</button>
             </div>
         </div>
     </div>
 
     <script>
-        // --- GLOBAL DATA ---
+        // --- DATA ---
         const services = [
-            { title: "Fast Food", icon: `<svg viewBox="0 0 24 24" class="cartoon-icon" fill="none" stroke="currentColor"><path d="M3 3h18v18H3z"/><path d="M7 8V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3"/><path d="M3 8h18v2a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z"/></svg>`, color: "bg-orange-500", desc: "Local favorites delivered fresh. Hotter than coal plant fires." },
+            { title: "Fast Food", icon: `<svg viewBox="0 0 24 24" class="cartoon-icon" fill="none" stroke="currentColor"><path d="M3 3h18v18H3z"/><path d="M7 8V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3"/><path d="M3 8h18v2a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Z"/></svg>`, color: "bg-orange-500", desc: "Favorites delivered hot. Hotter than coal plant fires." },
             { title: "Groceries", icon: `<svg viewBox="0 0 24 24" class="cartoon-icon" fill="none" stroke="currentColor"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>`, color: "bg-emerald-600", desc: "Supermarket runs. We brave Spar aisles so you don't have to." },
             { title: "Medication", icon: `<svg viewBox="0 0 24 24" class="cartoon-icon" fill="none" stroke="currentColor"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path></svg>`, color: "bg-blue-600", desc: "Scripts and pharmacy essentials. Logistics is speed." },
             { title: "Car Parts", icon: `<svg viewBox="0 0 24 24" class="cartoon-icon" fill="none" stroke="currentColor"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.77 3.77Z"></path></svg>`, color: "bg-slate-700", desc: "For the local mechanic. Heavy engine parts delivered fast." },
@@ -464,12 +462,12 @@
         ];
 
         const academyCards = [
-            { title: "Safety Protocol", desc: "Witbank Road Survival", img: "https://images.unsplash.com/photo-1551288049-bbbda536ad0a?auto=format&fit=crop&q=80&w=800" },
-            { title: "Customer Care", desc: "The Professional Chai", img: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&q=80&w=800" }
+            { title: "Road Logic", desc: "Witbank Pothole Survival", img: "https://images.unsplash.com/photo-1551288049-bbbda536ad0a?auto=format&fit=crop&q=80&w=800" },
+            { title: "Client Hustle", desc: "The Professional Chai", img: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&q=80&w=800" }
         ];
 
-        const reviews = [
-            { name: "Thandi M.", area: "Coal City Resident", text: "Fastest delivery in Witbank. Driver reminded me my gate was open. 10/10 hustle!" }
+        const reviewsData = [
+            { name: "Thandi M.", area: "Ackerville", text: "Fastest delivery in Witbank. Driver reminded me my gate was open. 10/10 hustle!" }
         ];
 
         // --- NAVIGATION ---
@@ -502,25 +500,10 @@
             document.body.style.overflow = 'auto';
         }
 
-        function setupAutoSliders() {
-            const sliders = ['academy-slider', 'reviews-slider'];
-            sliders.forEach(id => {
-                const el = document.getElementById(id);
-                if (!el) return;
-                setInterval(() => {
-                    if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 20) {
-                        el.scrollTo({ left: 0, behavior: 'smooth' });
-                    } else {
-                        el.scrollBy({ left: el.clientWidth * 0.8, behavior: 'smooth' });
-                    }
-                }, 4500);
-            });
-        }
-
         // --- IMAGEN 4.0 FIXED ---
         async function generateHeroImage() {
             const apiKey = ""; 
-            const promptText = "Vibrant thick-line cartoon illustration of a professional orange delivery motorcycle driving through a modern South African Witbank mining town, cooling towers and coal mine infrastructure in background, 8k digital art style";
+            const promptText = "Vibrant digital cartoon illustration of a professional orange delivery motorcycle driving through a modern South African Witbank mining town, cooling towers in background, bold line art style";
             const url = `https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=${apiKey}`;
 
             const fastFail = setTimeout(() => useFallback(), 3000);
@@ -529,10 +512,7 @@
                 const response = await fetch(url, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        instances: [{ prompt: promptText }], 
-                        parameters: { sampleCount: 1 }
-                    })
+                    body: JSON.stringify({ instances: [{ prompt: promptText }], parameters: { sampleCount: 1 } })
                 });
                 const result = await response.json();
                 const base64 = result.predictions?.[0]?.bytesBase64Encoded;
@@ -551,7 +531,7 @@
             heroImg.onload = () => { heroImg.classList.remove('opacity-0'); document.getElementById('image-skeleton').classList.add('hidden'); };
         }
 
-        // --- VALIDATIONS & MODALS ---
+        // --- VALIDATIONS ---
         function highlightMissingFields(form) {
             let invalidCount = 0;
             const requiredInputs = form.querySelectorAll('[required]');
@@ -563,14 +543,15 @@
                     input.classList.remove('field-error');
                 }
                 input.oninput = () => input.classList.remove('field-error');
+                if(input.tagName === 'SELECT') input.onchange = () => input.classList.remove('field-error');
             });
             return invalidCount > 0;
         }
 
         function openAlert(type, title, message, whatsappUrl = null, manifestText = null) {
             const themes = {
-                success: { icon: `<svg viewBox="0 0 24 24" class="text-emerald-500 w-12 h-12" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>`, border: 'alert-success' },
-                warning: { icon: `<svg viewBox="0 0 24 24" class="text-orange-500 w-10 h-10 animate-bounce" fill="none" stroke="currentColor"><path d="m12 9 4 7H8l4-7Z"></path><path d="M12 3v1"></path><path d="M12 17v.01"></path></svg>`, border: 'alert-warning' }
+                success: { icon: `<svg viewBox="0 0 24 24" class="text-emerald-500 w-10 h-10" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>`, border: 'alert-success' },
+                warning: { icon: `<svg viewBox="0 0 24 24" class="text-orange-500 w-8 h-8 animate-bounce" fill="none" stroke="currentColor"><path d="m12 9 4 7H8l4-7Z"></path><path d="M12 3v1"></path><path d="M12 17v.01"></path></svg>`, border: 'alert-warning' }
             };
             const theme = themes[type] || themes.warning;
             const modal = document.getElementById('modal-content');
@@ -599,61 +580,48 @@
 
         // --- STARTUP ---
         window.onload = () => {
+            // Radar Rendering
             const zones = ["Ackerville", "Lynville", "Thushanang", "Overline", "Clewer", "Eznameni"];
-            const territoryGrid = document.getElementById('territory-grid');
-            if (territoryGrid) {
-                territoryGrid.innerHTML = zones.map(z => `
-                    <div class="p-6 bg-white rounded-3xl border-2 border-slate-50 shadow-sm text-center">
-                        <p class="font-black uppercase tracking-tighter text-sm">${z}</p>
-                    </div>`).join('');
-            }
+            const radar = document.getElementById('territory-grid');
+            if (radar) radar.innerHTML = zones.map(z => `
+                <div class="p-5 bg-white rounded-2xl border border-slate-100 shadow-sm text-center hover:border-orange-500 transition-all group">
+                    <p class="font-black uppercase tracking-tighter text-[10px] md:text-xs text-slate-800 group-hover:text-orange-500 text-center">${z}</p>
+                </div>`).join('');
 
+            // Services Rendering ( Compact Icons )
             const servicesGrid = document.getElementById('services-grid');
-            if (servicesGrid) {
-                servicesGrid.innerHTML = services.map(s => `
-                    <button onclick="selectService('${s.title}')" class="group flex flex-col p-8 md:p-10 bg-white rounded-[2.5rem] md:rounded-[3rem] border-2 border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 text-left min-h-[180px]">
-                        <div class="${s.color} w-10 h-10 md:w-12 md:h-12 rounded-2xl flex items-center justify-center mb-6 shadow-xl text-white text-xl">${s.icon}</div>
-                        <h3 class="font-black uppercase tracking-tighter text-slate-900 text-lg mb-2 group-hover:text-orange-500 transition-colors">${s.title}</h3>
-                        <p class="text-slate-500 text-[10px] leading-relaxed mb-4 font-medium">${s.desc}</p>
-                        <div class="mt-auto pt-4 border-t border-slate-50 flex items-center justify-between">
-                           <span class="text-[9px] font-black uppercase tracking-widest text-orange-500">Pick Hustle</span>
-                           <svg viewBox="0 0 24 24" class="text-slate-200 group-hover:text-orange-500 transition-all w-4 h-4 text-left" fill="none" stroke="currentColor"><path d="m9 18 6-6-6-6"></path></svg>
-                        </div>
-                    </button>`).join('');
-            }
+            if (servicesGrid) servicesGrid.innerHTML = services.map(s => `
+                <button onclick="selectService('${s.title}')" class="group flex flex-col p-6 md:p-8 bg-white rounded-[2.5rem] border-2 border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 text-left min-h-[160px]">
+                    <div class="${s.color} w-8 h-8 md:w-10 md:h-10 rounded-xl flex items-center justify-center mb-5 shadow-xl text-white text-base text-left text-left text-left text-left">${s.icon}</div>
+                    <h3 class="font-black uppercase tracking-tighter text-slate-900 text-sm md:text-xl mb-1.5 group-hover:text-orange-500 transition-colors text-left">${s.title}</h3>
+                    <p class="text-slate-500 text-[9px] md:text-[10px] leading-relaxed mb-4 font-medium text-left text-left text-left text-left">${s.desc}</p>
+                    <div class="mt-auto pt-4 border-t border-slate-50 flex items-center justify-between text-left text-left text-left text-left">
+                       <span class="text-[8px] font-black uppercase tracking-widest text-orange-500 text-left text-left text-left text-left">Order Now</span>
+                       <svg viewBox="0 0 24 24" class="text-slate-200 group-hover:text-orange-500 transition-all w-3 h-3 text-left" fill="none" stroke="currentColor"><path d="m9 18 6-6-6-6"></path></svg>
+                    </div>
+                </button>`).join('');
 
+            // Academy Slider ( NO SQUISH FIXED )
             const academySlider = document.getElementById('academy-slider');
-            if (academySlider) {
-                academySlider.innerHTML = academyCards.map(c => `
-                    <div class="slider-item snap-center aspect-[3/4] relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50 bg-slate-100 text-left">
-                        <img src="${c.img}" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/90 to-transparent p-10 flex flex-col justify-end text-left">
-                            <h4 class="text-white font-black uppercase text-2xl text-left">${c.title}</h4>
-                            <p class="text-emerald-200 text-xs font-bold uppercase tracking-widest mt-2 text-left">${c.desc}</p>
-                        </div>
-                    </div>`).join('');
-            }
+            if (academySlider) academySlider.innerHTML = academyCards.map(c => `
+                <div class="slider-item snap-center aspect-[3/4] relative rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-slate-50 bg-slate-100 text-left text-left text-left">
+                    <img src="${c.img}" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/90 to-transparent p-8 flex flex-col justify-end text-left">
+                        <h4 class="text-white font-black uppercase text-xl text-left text-left text-left">${c.title}</h4>
+                        <p class="text-emerald-200 text-[10px] font-bold uppercase tracking-widest mt-1 text-left text-left text-left">${c.desc}</p>
+                    </div>
+                </div>`).join('');
 
+            // Reviews Slider
             const reviewsSlider = document.getElementById('reviews-slider');
-            if (reviewsSlider) {
-                reviewsSlider.innerHTML = reviews.map(r => `
-                    <div class="slider-item snap-center bg-white p-10 rounded-[3.5rem] border border-slate-100 shadow-sm flex flex-col justify-between h-[340px] text-left">
-                        <div class="space-y-6 text-left">
-                            <div class="flex gap-1 text-orange-500 text-left">
-                                <svg viewBox="0 0 24 24" class="fill-orange-500 w-3 h-3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24" class="fill-orange-500 w-3 h-3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24" class="fill-orange-500 w-3 h-3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24" class="fill-orange-500 w-3 h-3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg>
-                                <svg viewBox="0 0 24 24" class="fill-orange-500 w-3 h-3"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg>
-                            </div>
-                            <p class="text-slate-600 italic font-medium text-lg leading-relaxed text-left">${r.text}</p>
-                        </div>
-                        <div class="flex items-center gap-4 pt-6 border-t border-slate-50 text-left">
-                            <div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden shadow-inner text-left"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=${r.name}" alt="User"></div>
-                            <div class="text-left"><p class="font-black text-xs uppercase text-slate-900 text-left">${r.name}</p><p class="text-[8px] uppercase font-bold text-slate-400 text-left">${r.area}</p></div>
-                        </div>
-                    </div>`).join('');
-            }
+            if (reviewsSlider) reviewsSlider.innerHTML = reviewsData.map(r => `
+                <div class="slider-item snap-center bg-white p-8 rounded-[3rem] border border-slate-100 shadow-sm flex flex-col justify-between h-[340px] text-left text-left text-left text-left">
+                    <div class="space-y-4 text-left text-left">
+                        <div class="flex gap-0.5 text-orange-500 text-left text-left text-left text-left text-left text-left"><svg viewBox="0 0 24 24" class="fill-orange-500 w-3 h-3 text-left"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg><svg viewBox="0 0 24 24" class="fill-orange-500 w-3 h-3 text-left"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg><svg viewBox="0 0 24 24" class="fill-orange-500 w-3 h-3 text-left"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg><svg viewBox="0 0 24 24" class="fill-orange-500 w-3 h-3 text-left"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg><svg viewBox="0 0 24 24" class="fill-orange-500 w-3 h-3 text-left"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"></path></svg></div>
+                        <p class="text-slate-600 italic font-medium text-base leading-relaxed text-left text-left text-left text-left text-left">${r.text}</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-50 text-left text-left text-left text-left text-left text-left"><div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden shadow-inner text-left text-left text-left text-left text-left text-left"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=${r.name}" alt="User"></div><div class="text-left"><p class="font-black text-[10px] uppercase text-slate-900 text-left text-left text-left text-left text-left text-left">${r.name}</p><p class="text-[7px] uppercase font-bold text-slate-400 text-left text-left text-left text-left text-left text-left text-left">${r.area}</p></div></div>
+                </div>`).join('');
 
             generateHeroImage();
             setupAutoSliders();
@@ -664,11 +632,11 @@
 
         // --- HANDLERS ---
         function handleOrderSubmission(form) {
-            if (highlightMissingFields(form)) return openAlert('warning', 'Hhayibo!', 'Trying to order air? Please fill in all the required fields marked with *.');
+            if (highlightMissingFields(form)) return openAlert('warning', 'Hhayibo!', 'Deliver what? Air? Fill in the required fields marked with *.');
 
             const d = Object.fromEntries(new FormData(form).entries());
-            if (/\d/.test(d.name)) return openAlert('warning', 'IQ Test Failed!', "Numbers in your name? Witbank isn't ready for cyborgs yet. Use your real name, Grootman.");
-            if (d.phone.length < 10) return openAlert('warning', 'Short Digits!', "That number is too short. Unless you're using a walkie-talkie, give us 10 digits.");
+            if (/\d/.test(d.name)) return openAlert('warning', 'IQ Check Failed!', "Numbers in your name? Witbank isn't ready for cyborgs yet. Use your real name, Grootman.");
+            if (d.phone.length < 10) return openAlert('warning', 'Short Digits!', "That number is too short. Unless you're calling from a mine shaft with a tin can, give us 10 digits.");
             if (d.streetAddress.length < 5) return openAlert('warning', 'Too Vague!', "Address too short. The rider gets to eat half your meal if we have to guess where you live.");
 
             const text = `*WE DELIVER MANIFEST*%0A------------------------------%0A` +
@@ -686,7 +654,7 @@
         function handleAcademySubmit(form) {
             if (highlightMissingFields(form)) return openAlert('warning', 'Wait!', 'We cant train a ghost. Fill in your details.');
             const d = Object.fromEntries(new FormData(form).entries());
-            const text = `*ACADEMY INQUIRY*%0A------------------------------%0ASawubona! I want to join the We Deliver Academy hustle.%0A%0A👤 *Applicant:* ${d.name}%0A📞 *Contact:* ${d.phone}%0A%0A_I am because we are._`;
+            const text = `*ACADEMY INQUIRY*%0A------------------------------%0ASawubona! I want to join the Academy because I have the hustle.%0A%0A👤 *Applicant:* ${d.name}%0A📞 *Contact:* ${d.phone}%0A%0A_I am because we are._`;
             openAlert('success', 'Sharp-Sharp!', 'Inquiry captured! Redirecting to coordinator...', `https://wa.me/27794573805?text=${text}`, decodeURIComponent(text));
         }
 
@@ -706,3 +674,4 @@
     </script>
 </body>
 </html>
+
